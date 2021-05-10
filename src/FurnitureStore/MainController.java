@@ -17,6 +17,11 @@ public class MainController {
     }
 
     @FXML
+    void signupButtonOnAction(ActionEvent event) {
+        Controller.changeScene(event, "signup.fxml");
+    }
+
+    @FXML
     void quitButtonOnAction(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
