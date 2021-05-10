@@ -15,10 +15,9 @@ import java.util.Scanner;
 
 public class Controller {
 
-    @FXML
-    void loginButtonOnAction(ActionEvent event) {
+    protected void changeScene(ActionEvent event, String fxmlResourceName) {
         try {
-            Parent loginParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+            Parent loginParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlResourceName)));
             Scene loginScene = new Scene(loginParent);
             Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             loginStage.setScene(loginScene);
@@ -27,6 +26,11 @@ public class Controller {
             System.out.println("error");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void loginButtonOnAction(ActionEvent event) {
+        changeScene(event, "login.fxml");
     }
 
     @FXML
