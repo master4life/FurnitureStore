@@ -26,7 +26,6 @@ public class Controller {
             loginStage.setScene(loginScene);
             loginStage.show();
         } catch (IOException e) {
-            System.out.println("error");
             e.printStackTrace();
         }
     }
