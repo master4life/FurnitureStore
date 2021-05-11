@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.AddProductController">
+   <top>
+      <ImageView fitHeight="113.0" fitWidth="599.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../Resources/AddProduct.png" />
+         </image>
+      </ImageView>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton fx:id="rbtnFurniture" layoutX="52.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="113.0" text="Furniture" />
+            <RadioButton fx:id="rbtnAccessoire" layoutX="207.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="111.0" text="Accessoire" />
+            <ChoiceBox fx:id="type" layoutX="19.0" layoutY="78.0" prefHeight="25.0" prefWidth="151.0" />
+            <ChoiceBox fx:id="material" layoutX="17.0" layoutY="144.0" prefHeight="25.0" prefWidth="154.0" />
+            <Label layoutX="19.0" layoutY="52.0" prefHeight="17.0" prefWidth="107.0" text="Furniture type:" />
+            <Label layoutX="19.0" layoutY="115.0" prefHeight="17.0" prefWidth="73.0" text="Material:" />
+            <Label layoutX="17.0" layoutY="185.0" prefHeight="17.0" prefWidth="45.0" text="Size:" />
+            <TextField fx:id="txtHeight" layoutX="14.0" layoutY="210.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField fx:id="txtWidht" layoutX="69.0" layoutY="210.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField fx:id="txtLength" layoutX="126.0" layoutY="210.0" prefHeight="25.0" prefWidth="41.0" />
+            <Label layoutX="54.0" layoutY="214.0" prefHeight="17.0" prefWidth="15.0" text="X" textAlignment="CENTER" />
+            <Label layoutX="109.0" layoutY="214.0" text="X" textAlignment="CENTER" />
+            <TextField fx:id="txtPrice" layoutX="207.0" layoutY="78.0" promptText="Price" />
+            <TextField fx:id="txtAmount" layoutX="207.0" layoutY="119.0" promptText="Amount available" />
+            <TextArea fx:id="Description" layoutX="207.0" layoutY="157.0" prefHeight="104.0" prefWidth="149.0" promptText="Description" />
+            <Button fx:id="btnAdd" layoutX="444.0" layoutY="219.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
+            <ImageView fitHeight="135.0" fitWidth="172.0" layoutX="399.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
