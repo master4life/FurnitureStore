@@ -35,7 +35,7 @@
             <TextField layoutX="158.0" layoutY="160.0" prefHeight="25.0" prefWidth="150.0" />
             <PasswordField layoutX="158.0" layoutY="197.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="90.0" layoutY="201.0" text="Password" />
-            <Button layoutX="88.0" layoutY="261.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="225.0" text="Login" />
+            <Button fx:id="loginButton" layoutX="88.0" layoutY="261.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="225.0" text="Login" />
             <HBox layoutX="7.0" layoutY="340.0" prefHeight="60.0" prefWidth="388.0" spacing="20.0">
                <children>
                   <Button fx:id="backButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back">
