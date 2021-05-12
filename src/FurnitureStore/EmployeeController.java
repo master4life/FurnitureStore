@@ -3,19 +3,20 @@ package FurnitureStore;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class EmployeeController {
+public class EmployeeController implements Initializable {
 
     @FXML
     private TextField txtProdID;
@@ -37,6 +38,11 @@ public class EmployeeController {
 
     @FXML
     private Button btnFilter;
+
+    @FXML
+    private ContextMenu contextMenu;
+
+    private MenuItem view, edit, delete;
 
     @FXML
     void filterProducts(ActionEvent event) {
@@ -62,5 +68,13 @@ public class EmployeeController {
         Scene addScene = new Scene(parent);
         add.setScene(addScene);
         add.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        view = new MenuItem("View");
+        edit = new MenuItem("Edit");
+        delete = new MenuItem("Delete");
+        contextMenu.getItems().addAll(view,edit,delete);
     }
 }
