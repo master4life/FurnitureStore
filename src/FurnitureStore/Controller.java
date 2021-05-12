@@ -30,6 +30,21 @@ public class Controller {
         }
     }
 
+    public static void startEmployeeInterface(ActionEvent event, String fxmlResourceName){
+        try {
+            Parent empParent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource(fxmlResourceName)));
+            Scene empScene = new Scene(empParent);
+            Stage empStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            empStage.setScene(empScene);
+            empStage.setTitle("Product overview");
+            empStage.setMaximized(true);
+            empStage.setResizable(true);
+            empStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void quitApplicationAlert(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");

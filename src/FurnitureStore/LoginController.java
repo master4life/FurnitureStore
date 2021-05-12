@@ -15,6 +15,6 @@ public class LoginController {
     }
 
     public void loginButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "EmployeeView.fxml");
+        Controller.startEmployeeInterface(event, "EmployeeView.fxml");
     }
 }

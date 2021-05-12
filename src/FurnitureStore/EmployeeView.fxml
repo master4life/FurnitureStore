@@ -12,18 +12,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.EmployeeController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="642.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.EmployeeController">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="Product ID" />
-          <TableColumn prefWidth="75.0" text="Type" />
-            <TableColumn prefWidth="75.0" text="Material" />
-            <TableColumn prefWidth="75.0" text="Size" />
-            <TableColumn prefWidth="75.0" text="Description" />
-            <TableColumn prefWidth="75.0" text="Price" />
-            <TableColumn prefWidth="75.0" text="Amount" />
+          <TableColumn prefWidth="108.0" text="Product ID" />
+          <TableColumn prefWidth="106.00001525878906" text="Type" />
+            <TableColumn prefWidth="111.3333740234375" text="Material" />
+            <TableColumn prefWidth="108.00003051757812" text="Size" />
+            <TableColumn prefWidth="166.6666259765625" text="Description" />
+            <TableColumn prefWidth="98.0" text="Price" />
+            <TableColumn prefWidth="82.0" text="Amount" />
         </columns>
       </TableView>
    </center>
@@ -53,7 +52,7 @@
          <children>
             <TextField fx:id="txtProdID" layoutX="11.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" promptText="Product ID" />
             <Button fx:id="btnSearch" layoutX="12.0" layoutY="55.0" mnemonicParsing="false" onAction="#searchByID" prefHeight="25.0" prefWidth="105.0" text="Search" />
-            <Button layoutX="13.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add product" />
+            <Button fx:id="btnAdd" layoutX="13.0" layoutY="327.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="100.0" text="Add product" />
             <ChoiceBox fx:id="choiseType" layoutX="13.0" layoutY="115.0" prefHeight="25.0" prefWidth="103.0" />
             <ChoiceBox fx:id="choiseMaterial" layoutX="13.0" layoutY="164.0" prefHeight="25.0" prefWidth="105.0" />
             <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="213.0" prefHeight="25.0" prefWidth="49.0" promptText="From" />
