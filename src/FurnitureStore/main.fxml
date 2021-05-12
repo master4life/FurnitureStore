@@ -45,7 +45,7 @@
          <children>
             <ImageView fitHeight="715.0" fitWidth="302.0" layoutX="199.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Resources/Welcome.png" />
+                  <Image url="@../Resources/img/Welcome.png" />
                </image>
             </ImageView>
          </children>
