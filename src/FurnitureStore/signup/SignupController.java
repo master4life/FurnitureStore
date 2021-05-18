@@ -1,5 +1,6 @@
-package FurnitureStore;
+package FurnitureStore.signup;
 
+import FurnitureStore.base.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,6 +18,6 @@ public class SignupController {
     }
 
     public void backButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "main.fxml");
+        Controller.changeScene(event, "/FurnitureStore/main/main.fxml");
     }
 }

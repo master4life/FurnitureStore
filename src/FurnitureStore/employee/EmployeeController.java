@@ -1,5 +1,6 @@
-package FurnitureStore;
+package FurnitureStore.employee;
 
+import FurnitureStore.base.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,7 +65,7 @@ public class EmployeeController implements Initializable {
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);
         add.initModality(Modality.WINDOW_MODAL);
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("AddProductView.fxml")));
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/AddProductView.fxml")));
         Scene addScene = new Scene(parent);
         add.setScene(addScene);
         add.show();

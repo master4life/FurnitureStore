@@ -1,5 +1,6 @@
-package FurnitureStore;
+package FurnitureStore.login;
 
+import FurnitureStore.base.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +17,7 @@ public class LoginController {
     private Button quitButton;
 
     public void backButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "main.fxml");
+        Controller.changeScene(event, "/FurnitureStore/main/main.fxml");
     }
 
     public void quitButtonOnAction(ActionEvent event) {
@@ -24,6 +25,6 @@ public class LoginController {
     }
 
     public void loginButtonOnAction(ActionEvent event) {
-        Controller.startEmployeeInterface(event, "EmployeeView.fxml");
+        Controller.startEmployeeInterface(event, "/FurnitureStore/employee/EmployeeView.fxml");
     }
 }

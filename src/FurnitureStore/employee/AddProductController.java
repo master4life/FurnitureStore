@@ -1,4 +1,4 @@
-package FurnitureStore;
+package FurnitureStore.employee;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package FurnitureStore;
+package FurnitureStore.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

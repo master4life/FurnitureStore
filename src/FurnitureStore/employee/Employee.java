@@ -1,4 +1,4 @@
-package FurnitureStore;
+package FurnitureStore.employee;
 
 public class Employee {
 

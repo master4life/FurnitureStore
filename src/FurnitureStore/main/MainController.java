@@ -1,15 +1,13 @@
-package FurnitureStore;
+package FurnitureStore.main;
 
+import FurnitureStore.base.Controller;
+import FurnitureStore.employee.Employee;
+import FurnitureStore.employee.EmployeeModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
 
 import java.sql.SQLException;
-import java.util.Optional;
 
 public class MainController {
 
@@ -24,20 +22,21 @@ public class MainController {
 
     @FXML
     void loginButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "login.fxml");
+        Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
         try {
             EmployeeModel employeeModel= new EmployeeModel();
             // Following 2 lines only for testing purpose  ID MUST BE CHANGED FOR EACH TEST BECAUSE PRIMARY KEY
             Employee testEmployee = new Employee(3,"marin", "hincu", 22000, "chs", 344543, "chsss", 1, 1);
             employeeModel.createEmployee(testEmployee);
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            //throwables.printStackTrace();
+            System.out.println("Id already exists!");
         }
     }
 
     @FXML
     void signupButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "signup.fxml");
+        Controller.changeScene(event, "/FurnitureStore/signup/signup.fxml");
     }
 
     @FXML
