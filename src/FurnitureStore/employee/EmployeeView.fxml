@@ -12,18 +12,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="642.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="795.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="108.0" text="Product ID" />
-          <TableColumn prefWidth="106.00001525878906" text="Type" />
-            <TableColumn prefWidth="111.3333740234375" text="Material" />
-            <TableColumn prefWidth="108.00003051757812" text="Size" />
-            <TableColumn prefWidth="166.6666259765625" text="Description" />
-            <TableColumn prefWidth="98.0" text="Price" />
-            <TableColumn prefWidth="82.0" text="Amount" />
+          <TableColumn prefWidth="145.0" text="Product ID" />
+          <TableColumn prefWidth="102.0" text="Type" />
+            <TableColumn prefWidth="138.0" text="Material" />
+            <TableColumn prefWidth="97.0" text="Size" />
+            <TableColumn prefWidth="360.0" text="Description" />
+            <TableColumn prefWidth="194.0" text="Price" />
+            <TableColumn prefWidth="61.0" text="Amount" />
         </columns>
          <contextMenu>
             <ContextMenu fx:id="contextMenu" />
@@ -52,19 +53,45 @@
       </MenuBar>
    </top>
    <left>
-      <AnchorPane prefHeight="375.0" prefWidth="130.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="375.0" prefWidth="130.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-width: 0px;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtProdID" layoutX="11.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" promptText="Product ID" />
-            <Button fx:id="btnSearch" layoutX="12.0" layoutY="55.0" mnemonicParsing="false" onAction="#searchByID" prefHeight="25.0" prefWidth="105.0" text="Search" />
-            <Button fx:id="btnAdd" layoutX="13.0" layoutY="327.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="100.0" text="Add product" />
-            <ChoiceBox fx:id="choiseType" layoutX="13.0" layoutY="115.0" prefHeight="25.0" prefWidth="103.0" />
-            <ChoiceBox fx:id="choiseMaterial" layoutX="13.0" layoutY="164.0" prefHeight="25.0" prefWidth="105.0" />
+            <TextField fx:id="ProdID" alignment="CENTER" layoutX="11.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" promptText="Product ID" style="-fx-background-radius: 80px;">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></TextField>
+            <Button fx:id="SearchButton" layoutX="12.0" layoutY="55.0" mnemonicParsing="false" onAction="#SearchByIDOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="AddButton" alignment="CENTER" layoutX="13.0" layoutY="327.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Add product">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Button>
+            <ChoiceBox fx:id="ChoiceType" layoutX="13.0" layoutY="115.0" prefHeight="25.0" prefWidth="103.0" />
+            <ChoiceBox fx:id="ChoiceMaterial" layoutX="13.0" layoutY="164.0" prefHeight="25.0" prefWidth="105.0" />
             <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="213.0" prefHeight="25.0" prefWidth="49.0" promptText="From" />
             <TextField fx:id="txtMaxPrice" layoutX="65.0" layoutY="213.0" prefHeight="25.0" prefWidth="49.0" promptText="To" />
-            <Label layoutX="16.0" layoutY="196.0" prefHeight="17.0" prefWidth="40.0" text="Price" />
-            <Label layoutX="17.0" layoutY="98.0" prefHeight="17.0" prefWidth="43.0" text="Type" />
-            <Label layoutX="14.0" layoutY="147.0" text="Material" />
-            <Button fx:id="btnFilter" layoutX="13.0" layoutY="248.0" mnemonicParsing="false" onAction="#filterProducts" prefHeight="25.0" prefWidth="100.0" text="Filter" />
+            <Label layoutX="16.0" layoutY="194.0" prefHeight="17.0" prefWidth="40.0" text="Price">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Label>
+            <Label layoutX="16.0" layoutY="94.0" prefHeight="17.0" prefWidth="43.0" text="Type">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="145.0" text="Material">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Label>
+            <Button fx:id="FilterButton" alignment="CENTER" layoutX="13.0" layoutY="248.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Button>
+            <Button fx:id="EditButton" alignment="CENTER" layoutX="13.0" layoutY="365.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Edit product">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>

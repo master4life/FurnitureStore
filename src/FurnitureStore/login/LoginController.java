@@ -10,21 +10,11 @@ public class LoginController {
     @FXML
     private Button loginButton;
 
-    @FXML
-    private Button backButton;
-
-    @FXML
-    private Button quitButton;
-
-    public void backButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "/FurnitureStore/main/main.fxml");
+    public void RegisterLabelOnAction(ActionEvent event) {
+        Controller.changeScene(event, "/FurnitureStore/signup/signup.fxml");
     }
 
-    public void quitButtonOnAction(ActionEvent event) {
-        Controller.quitApplicationAlert(event);
-    }
-
-    public void loginButtonOnAction(ActionEvent event) {
+    public void LoginButtonOnAction(ActionEvent event) {
         Controller.startEmployeeInterface(event, "/FurnitureStore/employee/EmployeeView.fxml");
     }
 }

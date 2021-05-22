@@ -8,16 +8,12 @@ import javafx.scene.control.Button;
 public class SignupController {
 
     @FXML
-    private Button backButton;
+    private Button registerButton;
 
-    @FXML
-    private Button quitButton;
-
-    public void quitButtonOnAction(ActionEvent event) {
-        Controller.quitApplicationAlert(event);
+    public void SignInLabelOnAction(ActionEvent event) {
+        Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
     }
+    public void RegisterButtonOnAction(ActionEvent event) {
 
-    public void backButtonOnAction(ActionEvent event) {
-        Controller.changeScene(event, "/FurnitureStore/main/main.fxml");
     }
 }

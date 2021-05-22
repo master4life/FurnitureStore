@@ -20,16 +20,16 @@ import java.util.ResourceBundle;
 public class EmployeeController implements Initializable {
 
     @FXML
-    private TextField txtProdID;
+    private TextField ProdID;
 
     @FXML
-    private Button btnSearch;
+    private Button SearchButton;
 
     @FXML
-    private ChoiceBox<?> choiseType;
+    private ChoiceBox<?> ChoiceType;
 
     @FXML
-    private ChoiceBox<?> choiseMaterial;
+    private ChoiceBox<?> ChoiceMaterial;
 
     @FXML
     private TextField txtMinPrice;
@@ -38,7 +38,7 @@ public class EmployeeController implements Initializable {
     private TextField txtMaxPrice;
 
     @FXML
-    private Button btnFilter;
+    private Button FilterButton;
 
     @FXML
     private ContextMenu contextMenu;
@@ -46,17 +46,22 @@ public class EmployeeController implements Initializable {
     private MenuItem view, edit, delete;
 
     @FXML
-    void filterProducts(ActionEvent event) {
+    public void FilterProductsOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void searchByID(ActionEvent event) {
+    public void SearchByIDOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    public void addProduct(ActionEvent event) throws IOException {
+    public void EditButtonOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void AddButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Add a product");
         add.setWidth(600);
