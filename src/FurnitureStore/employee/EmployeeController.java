@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class EmployeeController implements Initializable {
+public class EmployeeController{
 
     @FXML
     private TextField ProdID;
@@ -41,9 +41,7 @@ public class EmployeeController implements Initializable {
     private Button FilterButton;
 
     @FXML
-    private ContextMenu contextMenu;
-
-    private MenuItem view, edit, delete;
+    private ContextMenu ProductTable;
 
     @FXML
     public void FilterProductsOnAction(ActionEvent event) {
@@ -56,16 +54,27 @@ public class EmployeeController implements Initializable {
     }
 
     @FXML
-    public void EditButtonOnAction(ActionEvent event) {
-
+    public void EditButtonOnAction(ActionEvent event) throws IOException {
+        Stage add = new Stage();
+        add.setTitle("Edit product");
+        add.setWidth(650);
+        add.setHeight(700);
+        add.setResizable(false);
+        Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        add.initOwner(owner);
+        add.initModality(Modality.WINDOW_MODAL);
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/EditProductView.fxml")));
+        Scene addScene = new Scene(parent);
+        add.setScene(addScene);
+        add.show();
     }
 
     @FXML
     public void AddButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Add a product");
-        add.setWidth(600);
-        add.setHeight(450);
+        add.setWidth(650);
+        add.setHeight(700);
         add.setResizable(false);
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);
@@ -74,13 +83,5 @@ public class EmployeeController implements Initializable {
         Scene addScene = new Scene(parent);
         add.setScene(addScene);
         add.show();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        view = new MenuItem("View");
-        edit = new MenuItem("Edit");
-        delete = new MenuItem("Delete");
-        contextMenu.getItems().addAll(view,edit,delete);
     }
 }

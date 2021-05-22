@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.customer.CustomerController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1132.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,7 +33,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="AddButton" alignment="CENTER" layoutX="14.0" layoutY="652.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Add product">
+            <Button fx:id="BuyButton" alignment="CENTER" layoutX="14.0" layoutY="652.0" mnemonicParsing="false" onAction="#BuyButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Buy product">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
@@ -71,7 +70,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="EditButton" alignment="CENTER" layoutX="130.0" layoutY="652.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Edit product">
+            <Button fx:id="ContactButton" alignment="CENTER" layoutX="130.0" layoutY="652.0" mnemonicParsing="false" onAction="#ContactButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Contact">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>

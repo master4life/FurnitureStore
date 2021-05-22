@@ -8,43 +8,44 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class AddProductController {
+public class EditProductController {
 
     @FXML
     private RadioButton rbtnFurniture1;
 
     @FXML
-    private RadioButton rbtnAccessoire1;
+    private RadioButton rbtnAccessoire2;
 
     @FXML
-    private ChoiceBox<?> Type1;
+    private ChoiceBox<?> Type2;
 
     @FXML
-    private ChoiceBox<?> Material1;
+    private ChoiceBox<?> Material2;
 
     @FXML
-    private TextField txtHeight1;
+    private TextField txtHeight2;
 
     @FXML
-    private TextField txtWidth1;
+    private TextField txtWidth2;
 
     @FXML
-    private TextField txtLength1;
+    private TextField txtLength2;
 
     @FXML
-    private TextField txtPrice1;
+    private TextField txtPrice2;
 
     @FXML
-    private TextField txtAmount1;
+    private TextField txtAmount2;
 
     @FXML
-    private TextArea Description1;
+    private TextArea Description2;
 
     @FXML
-    private Button btnAdd;
+    private Button btnEdit;
 
     @FXML
-    void addProduct(ActionEvent event) {
+    void editProduct(ActionEvent event) {
 
     }
+
 }

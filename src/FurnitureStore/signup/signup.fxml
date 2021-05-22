@@ -9,55 +9,55 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.signup.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.signup.SignupController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1230.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Resources/img/Background_mirror.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="574.0" layoutY="48.0" prefHeight="697.0" prefWidth="645.0">
+      <AnchorPane layoutX="567.0" layoutY="48.0" prefHeight="610.0" prefWidth="510.0">
          <children>
-            <Text layoutX="76.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum!">
+            <Text layoutX="41.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum!">
                <font>
                   <Font name="Avenir Next Bold" size="60.0" />
                </font>
             </Text>
-            <Text layoutX="76.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, &#10;sed diam nonumy eirmod tempor invidunt ut &#10;labore et dolore magna aliquyam erat,&#10;sed diam voluptua.">
+            <Text layoutX="42.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, &#10;sed diam nonumy eirmod tempor invidunt ut &#10;labore et dolore magna aliquyam erat,&#10;sed diam voluptua.">
                <font>
-                  <Font name="Avenir Book" size="22.0" />
+                  <Font name="Avenir Book" size="18.0" />
                </font>
             </Text>
-            <ImageView fitHeight="188.0" fitWidth="237.0" layoutX="314.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="168.0" fitWidth="164.0" layoutX="170.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Resources/img/signup_icon.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-3.0" layoutY="-4.0" prefHeight="800.0" prefWidth="497.0">
+      <AnchorPane layoutX="-3.0" prefHeight="700.0" prefWidth="480.0">
          <children>
-            <Label layoutX="157.0" layoutY="210.0" text="Sign up" textFill="WHITE">
+            <Label layoutX="132.0" layoutY="144.0" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="60.0" />
                </font>
             </Label>
-            <TextField layoutX="82.0" layoutY="331.0" prefHeight="35.0" prefWidth="345.0" promptText="Username" style="-fx-background-radius: 80px;">
+            <TextField layoutX="69.0" layoutY="265.0" prefHeight="35.0" prefWidth="345.0" promptText="Username" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="82.0" layoutY="386.0" prefHeight="35.0" prefWidth="345.0" promptText="Email" style="-fx-background-radius: 80px;">
+            <TextField layoutX="69.0" layoutY="320.0" prefHeight="35.0" prefWidth="345.0" promptText="Email" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutX="168.0" layoutY="619.0" prefHeight="20.0" prefWidth="182.0" text="Already have an account?" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="155.0" layoutY="553.0" prefHeight="20.0" prefWidth="182.0" text="Already have an account?" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="RegisterButton" layoutX="145.0" layoutY="541.0" mnemonicParsing="false" onAction="#RegisterButtonOnAction" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
+            <Button fx:id="RegisterButton" layoutX="132.0" layoutY="475.0" mnemonicParsing="false" onAction="#RegisterButtonOnAction" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
                <font>
                   <Font size="18.0" />
                </font>
@@ -67,12 +67,12 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="82.0" layoutY="441.0" prefHeight="35.0" prefWidth="345.0" promptText="Password" style="-fx-background-radius: 80px;">
+            <TextField layoutX="69.0" layoutY="375.0" prefHeight="35.0" prefWidth="345.0" promptText="Password" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
             </TextField>
-            <Button fx:id="SignInLabel" layoutX="224.0" layoutY="635.0" mnemonicParsing="false" onAction="#SignInLabelOnAction" style="-fx-background-color: transparent;" text="Sign in" textFill="#4635ff">
+            <Button fx:id="SignInLabel" layoutX="211.0" layoutY="569.0" mnemonicParsing="false" onAction="#SignInLabelOnAction" style="-fx-background-color: transparent;" text="Sign in" textFill="#4635ff">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
