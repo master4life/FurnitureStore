@@ -54,6 +54,11 @@ public class EmployeeController{
     }
 
     @FXML
+    public void DeleteButtonOnAction(ActionEvent event){
+
+    }
+
+    @FXML
     public void EditButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Edit product");
