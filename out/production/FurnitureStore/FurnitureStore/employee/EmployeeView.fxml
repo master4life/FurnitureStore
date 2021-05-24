@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1132.0" pickOnBounds="true" preserveRatio="true">
@@ -34,24 +33,24 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="AddButton" alignment="CENTER" layoutX="14.0" layoutY="652.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Add product">
+            <Button fx:id="AddButton" alignment="CENTER" layoutX="74.0" layoutY="530.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Add product">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
             <ChoiceBox fx:id="ChoiceType" layoutX="130.0" layoutY="291.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
             <ChoiceBox fx:id="ChoiceMaterial" layoutX="14.0" layoutY="291.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
-            <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="105.0" promptText="From">
+            <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="360.0" prefHeight="25.0" prefWidth="105.0" promptText="From">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtMaxPrice" layoutX="130.0" layoutY="361.0" prefHeight="25.0" prefWidth="105.0" promptText="To">
+            <TextField fx:id="txtMaxPrice" layoutX="130.0" layoutY="360.0" prefHeight="25.0" prefWidth="105.0" promptText="To">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="14.0" layoutY="336.0" prefHeight="17.0" prefWidth="40.0" text="Price">
+            <Label layoutX="14.0" layoutY="335.0" prefHeight="17.0" prefWidth="40.0" text="Price">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
@@ -66,12 +65,12 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="FilterButton" alignment="CENTER" layoutX="74.0" layoutY="406.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
+            <Button fx:id="FilterButton" alignment="CENTER" layoutX="74.0" layoutY="405.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="EditButton" alignment="CENTER" layoutX="130.0" layoutY="652.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Edit product">
+            <Button fx:id="EditButton" alignment="CENTER" layoutX="74.0" layoutY="576.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Edit product">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
@@ -81,6 +80,11 @@
                   <Image url="@../../Resources/img/signup_icon.png" />
                </image>
             </ImageView>
+            <Button fx:id="DeleteButton" alignment="CENTER" layoutX="65.0" layoutY="640.0" mnemonicParsing="false" onAction="#DeleteButtonOnAction" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #580600; -fx-background-radius: 80px;" text="Delete product" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <TableView layoutX="268.0" layoutY="20.0" prefHeight="660.0" prefWidth="795.0">
