@@ -87,15 +87,15 @@
             </Button>
          </children>
       </AnchorPane>
-      <TableView layoutX="268.0" layoutY="20.0" prefHeight="660.0" prefWidth="795.0">
+      <TableView fx:id="table" layoutX="268.0" layoutY="20.0" prefHeight="660.0" prefWidth="795.0">
          <columns>
-            <TableColumn prefWidth="79.77371215820312" text="Product ID" />
-            <TableColumn prefWidth="87.55551147460938" text="Type" />
-            <TableColumn prefWidth="91.64230346679688" text="Material" />
-            <TableColumn prefWidth="55.314453125" text="Size" />
-            <TableColumn prefWidth="334.72625732421875" text="Description" />
-            <TableColumn prefWidth="60.273681640625" text="Price" />
-            <TableColumn prefWidth="83.0" text="Amount" />
+            <TableColumn fx:id="colID" prefWidth="79.77371215820312" text="Product ID" />
+            <TableColumn fx:id="TypeCol" prefWidth="87.55551147460938" text="Type" />
+            <TableColumn fx:id="materialCol" prefWidth="91.64230346679688" text="Material" />
+            <TableColumn fx:id="sizeCol" prefWidth="104.66668701171875" text="Size" />
+            <TableColumn fx:id="descCol" prefWidth="285.99993896484375" text="Description" />
+            <TableColumn fx:id="priceCol" prefWidth="60.273681640625" text="Price" />
+            <TableColumn fx:id="amountCol" prefWidth="83.0" text="Amount" />
          </columns>
          <contextMenu>
             <ContextMenu fx:id="ProductTable" />

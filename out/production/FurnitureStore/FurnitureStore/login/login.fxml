@@ -42,12 +42,12 @@
                   <Font name="Avenir Book" size="60.0" />
                </font>
             </Label>
-            <TextField layoutX="82.0" layoutY="277.0" prefHeight="35.0" prefWidth="345.0" promptText="Username" style="-fx-background-radius: 80px;">
+            <TextField fx:id="usernameTxt" layoutX="82.0" layoutY="277.0" prefHeight="35.0" prefWidth="345.0" promptText="Username" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="82.0" layoutY="332.0" prefHeight="35.0" prefWidth="345.0" promptText="Password" style="-fx-background-radius: 80px;">
+            <TextField fx:id="passTxt" layoutX="82.0" layoutY="332.0" prefHeight="35.0" prefWidth="345.0" promptText="Password" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
@@ -72,6 +72,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="loginLable" layoutX="164.0" layoutY="385.0" prefHeight="29.0" prefWidth="182.0" textFill="#ac1616" />
          </children>
       </AnchorPane>
    </children>
