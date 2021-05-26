@@ -6,26 +6,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class AddProductController {
+public class AddProductController implements Initializable {
 
-    @FXML
-    private RadioButton rbtnFurniture1;
-
-    @FXML
-    private RadioButton rbtnAccessoire1;
 
     @FXML
-    private ChoiceBox<?> Type1;
+    private ChoiceBox<String> type;
 
     @FXML
     private ChoiceBox<String> material1;
@@ -54,14 +53,10 @@ public class AddProductController {
     // TODO: Error Handling
     @FXML
     void addProduct(ActionEvent event) {
-        int productCategory;
-        if(rbtnAccessoire1.isSelected()){
-            productCategory = 1;
-        }else {
-            productCategory = 2;
-        }
 
-        String productMaterial = (String) material1.getSelectionModel().getSelectedItem();
+        String productCategory = type.getValue();
+
+        String productMaterial = material1.getValue();
 
         double productPrice = Double.parseDouble(txtPrice1.getText().trim());
 
@@ -71,18 +66,29 @@ public class AddProductController {
 
         int productAmount = Integer.parseInt(txtAmount1.getText().trim());
 
-        ProductModel productToBeAdded = new ProductModel(productCategory, productMaterial, productPrice, productSize, productDescription, productAmount);
+        //ProductModel productToBeAdded = new ProductModel(productCategory, productMaterial, productPrice, productSize, productDescription, productAmount);
         try {
             DBController dbController = new DBController();
             Connection connection = dbController.getConnection();
             Statement statement = connection.createStatement();
 
+            ResultSet rs = connection.createStatement().executeQuery("select * from Categorie" +
+                    " where name = \""+productCategory+"\"");
+            int cat = rs.getInt("categorieID");
             String insertQuery = "insert into Product (categorie, material, price, size, describtion, amountAvailable)  values ("
-                                    + productToBeAdded.getCategorie()+",'"+productToBeAdded.getMaterial()+"',"+productToBeAdded.getPrice()+",'"
-                                    +productToBeAdded.getSize()+"','"+productToBeAdded.getDescription()+"',"+productToBeAdded.getAmount()+")";
+                                    + cat+",'"+productMaterial+"',"+productPrice+",'"
+                                    +productSize+"','"+productDescription+"',"+productAmount+")";
             statement.executeUpdate(insertQuery);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        this.type.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
+        this.material1.getItems().addAll("wood", "metal", "plastic", "upholstered");
+
     }
 }

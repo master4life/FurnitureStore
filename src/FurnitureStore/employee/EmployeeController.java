@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -89,7 +87,21 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void DeleteButtonOnAction(ActionEvent event){
+        ProductModel selected = table.getSelectionModel().getSelectedItem();
+        System.out.println(selected.getId());
+        //Prepare statement
+        try {
+            DBController ctr = new DBController();
+            Connection con = ctr.getConnection();
+            PreparedStatement s = con.prepareStatement("delete from Product where productID = ?");
+            s.setInt(1, selected.getId());
+            s.execute();
 
+            con.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        table.getItems().removeAll(selected);
     }
 
     @FXML
