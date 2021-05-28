@@ -87,6 +87,7 @@ public class AddProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        this.type.getItems().clear();
         this.type.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
         this.material1.getItems().addAll("wood", "metal", "plastic", "upholstered");
 
