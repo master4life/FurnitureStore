@@ -21,9 +21,6 @@ public class LoginController {
     @FXML
     private Label loginLabel;
 
-    @FXML
-    private Button loginButton;
-
     public void RegisterLabelOnAction(ActionEvent event) {
         Controller.changeScene(event, "/FurnitureStore/signup/signup.fxml");
     }
@@ -43,7 +40,6 @@ public class LoginController {
         ps = connection.getConnection().prepareStatement(sql);
         ps.setString(1, user);
         rs = ps.executeQuery();
-
 
         //Checking username/password
         if(!rs.next()){

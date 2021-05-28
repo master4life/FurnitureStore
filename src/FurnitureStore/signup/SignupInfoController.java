@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 
 public class SignupInfoController {
 
-
     @FXML
     private TextField firstname;
     @FXML
@@ -15,7 +14,7 @@ public class SignupInfoController {
     @FXML
     private TextField street;
     @FXML
-    private TextField houseNum;
+    private TextField houseNumber;
     @FXML
     private TextField zipCode;
     @FXML

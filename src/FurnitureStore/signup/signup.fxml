@@ -43,7 +43,7 @@
                   <Font name="Avenir Book" size="45.0" />
                </font>
             </Label>
-            <TextField fx:id="usernametxt" layoutX="50.0" layoutY="215.0" prefHeight="35.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 80px;">
+            <TextField fx:id="username" layoutX="50.0" layoutY="215.0" prefHeight="35.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>

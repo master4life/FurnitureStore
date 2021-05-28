@@ -10,15 +10,14 @@ public class SignupController {
     @FXML
     private Button registerButton;
     @FXML
-    private TextField usernameTxt;
+    private TextField username;
     @FXML
     private TextField email;
     @FXML
     private PasswordField passtxt;
     @FXML
     private Label registerLabel;
-
-
+    
     public void SignInLabelOnAction(ActionEvent event) {
         Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
     }

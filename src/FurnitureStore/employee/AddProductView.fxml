@@ -47,7 +47,7 @@
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnAdd" alignment="CENTER" layoutX="264.0" layoutY="549.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Add Product">
+      <Button fx:id="btnAdd" alignment="CENTER" layoutX="264.0" layoutY="549.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color:#DFE0DF; -fx-background-radius: 80px;" text="Add Product">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
@@ -57,8 +57,11 @@
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtHeight1" layoutX="92.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="244.0" layoutY="271.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtHeight1" layoutX="92.0" layoutY="271.0" prefHeight="26.0" prefWidth="62.0" promptText="Height">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font></TextField>
+      <Label layoutX="247.0" layoutY="273.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>
@@ -78,9 +81,15 @@
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextArea>
-      <TextField fx:id="txtWidth1" layoutX="179.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
-      <TextField fx:id="txtLength1" layoutX="266.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="157.0" layoutY="271.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtWidth1" layoutX="179.0" layoutY="271.0" prefHeight="26.0" prefWidth="62.0" promptText="Width">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="txtLength1" layoutX="266.0" layoutY="271.0" prefHeight="26.0" prefWidth="62.0" promptText="Length">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font></TextField>
+      <Label layoutX="161.0" layoutY="273.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>

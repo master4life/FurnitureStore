@@ -28,18 +28,18 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="SearchButton" layoutX="70.0" layoutY="193.0" mnemonicParsing="false" onAction="#SearchByIDOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Search">
+            <Button fx:id="SearchButton" layoutX="70.0" layoutY="193.0" mnemonicParsing="false" onAction="#SearchByIDOnAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Search">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="AddButton" alignment="CENTER" layoutX="74.0" layoutY="437.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Add product">
+            <Button fx:id="AddButton" alignment="CENTER" layoutX="74.0" layoutY="437.0" mnemonicParsing="false" onAction="#AddButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Add product">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="ChoiceType" layoutX="130.0" layoutY="278.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
-            <ChoiceBox fx:id="ChoiceMaterial" layoutX="14.0" layoutY="278.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
+            <ChoiceBox fx:id="ChoiceType" layoutX="130.0" layoutY="278.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF;" />
+            <ChoiceBox fx:id="ChoiceMaterial" layoutX="14.0" layoutY="278.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF;" />
             <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="347.0" prefHeight="25.0" prefWidth="105.0" promptText="From">
                <font>
                   <Font name="Avenir Book" size="14.0" />
@@ -65,12 +65,12 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="FilterButton" alignment="CENTER" layoutX="74.0" layoutY="392.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
+            <Button fx:id="FilterButton" alignment="CENTER" layoutX="74.0" layoutY="392.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Filter">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="EditButton" alignment="CENTER" layoutX="74.0" layoutY="482.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Edit product">
+            <Button fx:id="EditButton" alignment="CENTER" layoutX="74.0" layoutY="482.0" mnemonicParsing="false" onAction="#EditButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Edit product">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
