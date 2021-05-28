@@ -108,8 +108,8 @@ public class EmployeeController implements Initializable{
     public void EditButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Edit product");
-        add.setWidth(650);
-        add.setHeight(700);
+        add.setWidth(455);
+        add.setHeight(620);
         add.setResizable(false);
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);
@@ -124,8 +124,8 @@ public class EmployeeController implements Initializable{
     public void AddButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Add a product");
-        add.setWidth(650);
-        add.setHeight(700);
+        add.setWidth(455);
+        add.setHeight(620);
         add.setResizable(false);
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);

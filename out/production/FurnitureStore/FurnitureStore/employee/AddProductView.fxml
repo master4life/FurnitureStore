@@ -13,24 +13,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.AddProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.AddProductController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1132.0" pickOnBounds="true">
+      <ImageView fitHeight="601.0" fitWidth="1132.0" pickOnBounds="true">
          <image>
             <Image url="@../../Resources/img/Background_Employee.jpg" />
          </image>
       </ImageView>
       <Pane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: white; -fx-opacity: 0.4;" visible="false" />
-      <AnchorPane layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="650.0">
-         <children>
-            <Button fx:id="btnAdd" alignment="CENTER" layoutX="416.0" layoutY="637.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Add Product">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <ChoiceBox fx:id="type" layoutX="132.0" layoutY="150.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;">
+      <ChoiceBox fx:id="type" layoutX="92.0" layoutY="139.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Type1" />
@@ -38,7 +29,7 @@
             </FXCollections>
          </items>
       </ChoiceBox>
-      <ChoiceBox fx:id="material1" layoutX="132.0" layoutY="217.0" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: white;">
+      <ChoiceBox fx:id="material1" layoutX="92.0" layoutY="206.0" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: white;">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Wood" />
@@ -46,45 +37,50 @@
             </FXCollections>
          </items>
       </ChoiceBox>
-      <Label layoutX="132.0" layoutY="125.0" prefHeight="17.0" prefWidth="107.0" text="Type">
+      <Label layoutX="92.0" layoutY="114.0" prefHeight="17.0" prefWidth="107.0" text="Type">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="193.0" prefHeight="17.0" prefWidth="73.0" text="Material">
+      <Label layoutX="92.0" layoutY="182.0" prefHeight="17.0" prefWidth="73.0" text="Material">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="259.0" prefHeight="17.0" prefWidth="45.0" text="Size">
+      <Button fx:id="btnAdd" alignment="CENTER" layoutX="264.0" layoutY="549.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Add Product">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="92.0" layoutY="248.0" prefHeight="17.0" prefWidth="45.0" text="Size">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtHeight1" layoutX="132.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="284.0" layoutY="282.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtHeight1" layoutX="92.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
+      <Label layoutX="244.0" layoutY="271.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPrice1" layoutX="132.0" layoutY="336.0" promptText="Price">
+      <TextField fx:id="txtPrice1" layoutX="92.0" layoutY="317.0" promptText="Price">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAmount1" layoutX="132.0" layoutY="377.0" promptText="Amount">
+      <TextField fx:id="txtAmount1" layoutX="92.0" layoutY="358.0" promptText="Amount">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextField>
-      <TextArea fx:id="Description1" layoutX="132.0" layoutY="416.0" prefHeight="206.0" prefWidth="384.0" promptText="Description">
+      <TextArea fx:id="Description1" layoutX="92.0" layoutY="397.0" prefHeight="142.0" prefWidth="270.0" promptText="Description">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextArea>
-      <TextField fx:id="txtWidth1" layoutX="219.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <TextField fx:id="txtLength1" layoutX="306.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="197.0" layoutY="282.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtWidth1" layoutX="179.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
+      <TextField fx:id="txtLength1" layoutX="266.0" layoutY="271.0" prefHeight="26.0" prefWidth="54.0" />
+      <Label layoutX="157.0" layoutY="271.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>

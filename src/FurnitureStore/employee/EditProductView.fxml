@@ -12,74 +12,79 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EditProductController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EditProductController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1132.0" pickOnBounds="true">
+      <ImageView fitHeight="603.0" fitWidth="1132.0" pickOnBounds="true">
          <image>
             <Image url="@../../Resources/img/Background_Employee.jpg" />
          </image>
       </ImageView>
       <Pane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: white; -fx-opacity: 0.4;" visible="false" />
-      <AnchorPane layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="650.0">
-         <children>
-            <Button fx:id="btnEdit" alignment="CENTER" layoutX="416.0" layoutY="637.0" mnemonicParsing="false" onAction="#editProduct" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Save changes">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <RadioButton fx:id="rbtnFurniture2" layoutX="132.0" layoutY="86.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="113.0" text="Furniture">
+      <RadioButton fx:id="rbtnFurniture2" layoutX="96.0" layoutY="94.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="113.0" text="Furniture">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="rbtnAccessoire2" layoutX="232.0" layoutY="87.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="111.0" text="Accessoire">
+      <RadioButton fx:id="rbtnAccessoire2" layoutX="196.0" layoutY="93.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="111.0" text="Accessoire">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </RadioButton>
-      <ChoiceBox fx:id="Type2" layoutX="132.0" layoutY="150.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;" />
-      <ChoiceBox fx:id="Material2" layoutX="132.0" layoutY="217.0" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: white;" />
-      <Label layoutX="132.0" layoutY="125.0" prefHeight="17.0" prefWidth="107.0" text="Type">
+      <Button fx:id="btnEdit" alignment="CENTER" layoutX="252.0" layoutY="549.0" mnemonicParsing="false" onAction="#editProduct" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Save changes">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="Type2" layoutX="96.0" layoutY="150.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;" />
+      <ChoiceBox fx:id="Material2" layoutX="96.0" layoutY="217.0" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: white;" />
+      <Label layoutX="96.0" layoutY="125.0" prefHeight="17.0" prefWidth="107.0" text="Type">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="193.0" prefHeight="17.0" prefWidth="73.0" text="Material">
+      <Label layoutX="96.0" layoutY="193.0" prefHeight="17.0" prefWidth="73.0" text="Material">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="259.0" prefHeight="17.0" prefWidth="45.0" text="Size">
+      <Label layoutX="96.0" layoutY="259.0" prefHeight="17.0" prefWidth="45.0" text="Size">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtHeight2" layoutX="132.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="284.0" layoutY="282.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtHeight2" layoutX="96.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" promptText="Height">
+         <font>
+            <Font name="Avenir Book" size="12.0" />
+         </font></TextField>
+      <Label layoutX="248.0" layoutY="282.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPrice2" layoutX="132.0" layoutY="336.0" promptText="Price">
+      <TextField fx:id="txtPrice2" layoutX="96.0" layoutY="336.0" promptText="Price">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAmount2" layoutX="132.0" layoutY="377.0" promptText="Amount">
+      <TextField fx:id="txtAmount2" layoutX="96.0" layoutY="377.0" promptText="Amount">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextField>
-      <TextArea fx:id="Description2" layoutX="130.0" layoutY="416.0" prefHeight="206.0" prefWidth="384.0" promptText="Description">
+      <TextArea fx:id="Description2" layoutX="96.0" layoutY="416.0" prefHeight="123.0" prefWidth="263.0" promptText="Description">
          <font>
             <Font name="Avenir Book" size="14.0" />
          </font>
       </TextArea>
-      <TextField fx:id="txtWidth2" layoutX="219.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <TextField fx:id="txtLength2" layoutX="306.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" />
-      <Label layoutX="197.0" layoutY="282.0" text="X" textAlignment="CENTER">
+      <TextField fx:id="txtWidth2" layoutX="183.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" promptText="Width">
+         <font>
+            <Font name="Avenir Book" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtLength2" layoutX="270.0" layoutY="282.0" prefHeight="26.0" prefWidth="54.0" promptText="Length">
+         <font>
+            <Font name="Avenir Book" size="12.0" />
+         </font></TextField>
+      <Label layoutX="161.0" layoutY="282.0" text="X" textAlignment="CENTER">
          <font>
             <Font name="Avenir Book" size="18.0" />
          </font>

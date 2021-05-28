@@ -19,7 +19,7 @@ public class LoginController {
     private TextField passTxt;
 
     @FXML
-    private Label loginLable;
+    private Label loginLabel;
 
     @FXML
     private Button loginButton;
@@ -33,12 +33,12 @@ public class LoginController {
         String user = usernameTxt.getText();
         String pass = passTxt.getText();
 
-        //Conecting to DB
+        //Connecting to DB
         DBController connection = new DBController();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        //Create querry
+        //Create query
         String sql = "select password from EmployeeAccount where username = ?";
         ps = connection.getConnection().prepareStatement(sql);
         ps.setString(1, user);
@@ -47,7 +47,7 @@ public class LoginController {
 
         //Checking username/password
         if(!rs.next()){
-            loginLable.setText("Username dont exist");
+            loginLabel.setText("Username doesn't exist");
             rs.close();
             ps.close();
             connection.getConnection().close();
@@ -56,9 +56,9 @@ public class LoginController {
         String realPass = rs.getString(1);
 
         if(realPass.equals(pass)){
-            Controller.startEmployeeInterface(event, "/FurnitureStore/employee/EmployeeView.fxml");
+            Controller.changeScene(event, "/FurnitureStore/employee/EmployeeView.fxml");
         }else{
-            loginLable.setText("Password not correct");
+            loginLabel.setText("Password not correct");
         }
         rs.close();
         ps.close();
