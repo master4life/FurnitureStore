@@ -20,6 +20,15 @@ public class ProductModel {
         this.amount = Integer.valueOf(amount);
     }
 
+    public ProductModel(int categorie, String material, double price, String size, String description, int amount) {
+        this.categorie =  Integer.valueOf(categorie);
+        this.material = material;
+        this.price = Double.valueOf(price);
+        this.size = size;
+        this.description = description;
+        this.amount = Integer.valueOf(amount);
+    }
+
     public Integer getId() {
         return id;
     }
