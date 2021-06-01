@@ -29,7 +29,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Text>
-            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="130.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="registerButton" fitHeight="130.0" fitWidth="130.0" layoutX="130.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Resources/img/signup_icon.png" />
                </image>
@@ -58,16 +58,11 @@
                   <Font name="Avenir Book" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="RegisterButton" layoutX="105.0" layoutY="425.0" mnemonicParsing="false" onAction="#RegisterButtonOnAction" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
+            <Button layoutX="105.0" layoutY="425.0" mnemonicParsing="false" onAction="#nextButtonOnAction" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Next">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="registerLabel" alignment="CENTER" layoutX="98.0" layoutY="397.0" prefHeight="20.0" prefWidth="201.0" text="Wrong username or password!" textFill="RED" visible="false">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </Label>
             <Button fx:id="SignInLabel" layoutX="175.0" layoutY="524.0" mnemonicParsing="false" onAction="#SignInLabelOnAction" style="-fx-background-color: transparent;" text="Sign in" textFill="#4635ff">
                <font>
                   <Font name="Avenir Book" size="12.0" />
@@ -78,6 +73,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </PasswordField>
+            <Label fx:id="errorLabel" layoutX="100.0" layoutY="380.0" prefHeight="25.0" prefWidth="201.0" textFill="#c92222" />
          </children>
       </AnchorPane>
    </children>
