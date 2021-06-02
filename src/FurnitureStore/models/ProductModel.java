@@ -85,7 +85,7 @@ public class ProductModel {
         this.amount = amount;
     }
 
-    public String categorieStr(){
+    public static String categorieStr(int categorie){
         switch (categorie){
             case 1: return "accessoire";
             case 2: return "table";

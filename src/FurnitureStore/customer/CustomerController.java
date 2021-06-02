@@ -131,7 +131,7 @@ public class CustomerController implements Initializable {
                     err.setContentText("There are not enough on stock");
                     err.show();
                 }else{
-                    Cart.add(new CartItem(selected.getId(), selected.categorieStr(), amount,
+                    Cart.add(new CartItem(selected.getId(), ProductModel.categorieStr(selected.getCategorie().intValue()), amount,
                             selected.getPrice()*amount));
                 }
             }catch (NumberFormatException e){
