@@ -108,7 +108,12 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void SearchByIDOnAction(ActionEvent event) {
-
+        table.getItems().clear();
+        String prodId = ProdID.getText();
+        String query = "select * from Product where productId = " +prodId;
+        executeSelectQuery(query);
+        setTableColumns();
+        ProdID.setText("");
     }
 
     @FXML
