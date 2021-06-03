@@ -78,6 +78,30 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void FilterProductsOnAction(ActionEvent event) {
+        table.getItems().clear();
+
+            try {
+                double minPrice = Double.parseDouble(txtMinPrice.getText());
+                double maxPrice = Double.parseDouble(txtMaxPrice.getText());
+
+                String selectQuery = "select * from Product where price > " + minPrice + " and price < " + maxPrice;
+                executeSelectQuery(selectQuery);
+
+                setTableColumns();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Filter warning");
+                alert.setHeaderText("Please select some values for the filter.");
+                alert.setContentText("If you already entered some values, please make sure to only include numbers in the price fields.");
+                alert.show();
+
+                // Initialize table again with all tuples
+                String selectQuery = "select * from Product";
+                executeSelectQuery(selectQuery);
+                setTableColumns();
+            }
+
+
 
     }
 
@@ -142,12 +166,17 @@ public class EmployeeController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        String selectQuery = "select * from Product";
+        executeSelectQuery(selectQuery);
 
-        //Create DB Connection
+        setTableColumns();
+    }
+
+    private void executeSelectQuery(String query) {
         try {
             DBController ctr = new DBController();
             Connection con = ctr.getConnection();
-            ResultSet rs = con.createStatement().executeQuery("select * from Product");
+            ResultSet rs = con.createStatement().executeQuery(query);
 
             //Read rows
             while(rs.next()){
@@ -164,8 +193,9 @@ public class EmployeeController implements Initializable{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
 
-        //Set table columns
+    private void setTableColumns() {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         TypeCol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
@@ -173,7 +203,6 @@ public class EmployeeController implements Initializable{
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
-
         table.setItems(olist);
     }
 
