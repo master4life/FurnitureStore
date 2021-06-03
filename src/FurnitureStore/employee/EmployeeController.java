@@ -75,6 +75,7 @@ public class EmployeeController implements Initializable{
 
     ObservableList<ProductModel> olist = FXCollections.observableArrayList();
 
+
     @FXML
     public void FilterProductsOnAction(ActionEvent event) {
 
@@ -107,6 +108,7 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void EditButtonOnAction(ActionEvent event) throws IOException {
+        initializeProductParameter();
         Stage add = new Stage();
         add.setTitle("Edit product");
         add.setWidth(455);
@@ -173,5 +175,16 @@ public class EmployeeController implements Initializable{
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
         table.setItems(olist);
+    }
+
+    private void initializeProductParameter() {
+        ProductModel selectedProduct = table.getSelectionModel().getSelectedItem();
+        TempProduct.setProductId(selectedProduct.getId());
+        TempProduct.setProductPrice(selectedProduct.getPrice());
+        TempProduct.setProductCategory(selectedProduct.getCategorie());
+        TempProduct.setProductSize(selectedProduct.getSize());
+        TempProduct.setProductDescription(selectedProduct.getDescription());
+        TempProduct.setProductMaterial(selectedProduct.getMaterial());
+        TempProduct.setAvailableProductAmount(selectedProduct.getAmount());
     }
 }
