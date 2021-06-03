@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.MenuItem?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="927.0" pickOnBounds="true" preserveRatio="true">
@@ -98,7 +99,11 @@
             <TableColumn fx:id="amountCol" prefWidth="62.0" text="Amount" />
          </columns>
          <contextMenu>
-            <ContextMenu fx:id="ProductTable" />
+            <ContextMenu>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#refreshAction" text="Refresh" />
+               </items>
+            </ContextMenu>
          </contextMenu>
       </TableView>
    </children>

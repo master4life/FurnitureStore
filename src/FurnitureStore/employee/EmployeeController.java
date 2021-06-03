@@ -56,10 +56,10 @@ public class EmployeeController implements Initializable{
     private Button SearchButton;
 
     @FXML
-    private ChoiceBox<?> ChoiceType;
+    private ChoiceBox<String> ChoiceType;
 
     @FXML
-    private ChoiceBox<?> ChoiceMaterial;
+    private ChoiceBox<String> ChoiceMaterial;
 
     @FXML
     private TextField txtMinPrice;
@@ -132,19 +132,29 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void EditButtonOnAction(ActionEvent event) throws IOException {
-        initializeProductParameter();
-        Stage add = new Stage();
-        add.setTitle("Edit product");
-        add.setWidth(455);
-        add.setHeight(620);
-        add.setResizable(false);
-        Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        add.initOwner(owner);
-        add.initModality(Modality.WINDOW_MODAL);
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/EditProductView.fxml")));
-        Scene addScene = new Scene(parent);
-        add.setScene(addScene);
-        add.show();
+        ProductModel selected = table.getSelectionModel().getSelectedItem();
+        if(selected != null){
+            initializeProductParameter();
+            Stage add = new Stage();
+            add.setTitle("Edit product");
+            add.setWidth(455);
+            add.setHeight(620);
+            add.setResizable(false);
+            Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            add.initOwner(owner);
+            add.initModality(Modality.WINDOW_MODAL);
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/EditProductView.fxml")));
+            Scene addScene = new Scene(parent);
+            add.setScene(addScene);
+            add.show();
+        } else {
+            Alert err = new Alert(Alert.AlertType.ERROR);
+            err.setHeaderText("Product could not be added.");
+            err.setTitle("Edit Product");
+            err.setContentText("Please select the product you want to edit.");
+            err.show();
+        }
+
     }
 
     @FXML
@@ -168,8 +178,11 @@ public class EmployeeController implements Initializable{
 
         String selectQuery = "select * from Product";
         executeSelectQuery(selectQuery);
-
         setTableColumns();
+
+        this.ChoiceType.getItems().clear();
+        this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
+        this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
     }
 
     private void executeSelectQuery(String query) {
@@ -215,5 +228,12 @@ public class EmployeeController implements Initializable{
         TempProduct.setProductDescription(selectedProduct.getDescription());
         TempProduct.setProductMaterial(selectedProduct.getMaterial());
         TempProduct.setAvailableProductAmount(selectedProduct.getAmount());
+    }
+
+    public void refreshAction(ActionEvent event) {
+        table.getItems().clear();
+        String selectQuery = "select * from Product";
+        executeSelectQuery(selectQuery);
+        setTableColumns();
     }
 }
