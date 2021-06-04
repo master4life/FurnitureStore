@@ -95,9 +95,6 @@ public class EmployeeController implements Initializable{
                     System.out.println("No prices");
                 }
 
-                System.out.println(minPrice);
-                System.out.println(maxPrice);
-
                 int category = 0;
                 String material = "";
 
@@ -113,12 +110,8 @@ public class EmployeeController implements Initializable{
                     material = ChoiceMaterial.getValue();
                     materialNotNull = true;
                 } catch (Exception e) {
-                    System.out.println("no material");
                     materialNotNull = false;
                 }
-
-
-
 
                 String selectQuery = "";
                 if (maxPrice != 0 && minPrice != 0) {
@@ -143,8 +136,6 @@ public class EmployeeController implements Initializable{
                 executeSelectQuery(selectQuery);
                 setTableColumns();
             }
-
-
 
     }
 
