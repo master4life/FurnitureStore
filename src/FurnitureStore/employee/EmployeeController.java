@@ -84,7 +84,7 @@ public class EmployeeController implements Initializable{
                 double minPrice = Double.parseDouble(txtMinPrice.getText());
                 double maxPrice = Double.parseDouble(txtMaxPrice.getText());
 
-                String selectQuery = "select * from Product where price > " + minPrice + " and price < " + maxPrice;
+                String selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
                 executeSelectQuery(selectQuery);
 
                 setTableColumns();
@@ -113,7 +113,7 @@ public class EmployeeController implements Initializable{
         String query = "select * from Product where productId = " +prodId;
         executeSelectQuery(query);
         setTableColumns();
-        ProdID.setText("");
+        emptyAllFields();
     }
 
     @FXML
@@ -164,6 +164,7 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void AddButtonOnAction(ActionEvent event) throws IOException {
+        emptyAllFields();
         Stage add = new Stage();
         add.setTitle("Add a product");
         add.setWidth(455);
@@ -240,5 +241,15 @@ public class EmployeeController implements Initializable{
         String selectQuery = "select * from Product";
         executeSelectQuery(selectQuery);
         setTableColumns();
+        emptyAllFields();
+
+    }
+
+    private void emptyAllFields() {
+        txtMinPrice.setText("");
+        txtMaxPrice.setText("");
+        ProdID.setText("");
+        ChoiceType.setValue("");
+        ChoiceMaterial.setValue("");
     }
 }
