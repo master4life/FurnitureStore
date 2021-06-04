@@ -84,4 +84,18 @@ public class ProductModel {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
+
+    public static String categorieStr(int categorie){
+        switch (categorie){
+            case 1: return "accessoire";
+            case 2: return "table";
+            case 3: return "closet";
+            case 4: return "sofa";
+            case 5: return "bed";
+            case 6: return "chair";
+            case 7: return "shelf";
+            case 8: return "refrigerator";
+        }
+        return "";
+    }
 }

@@ -22,42 +22,42 @@
                   <Font name="Avenir Book" size="45.0" />
                </font>
             </Label>
-            <TextField fx:id="firstname" layoutX="47.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Firstname" style="-fx-background-radius: 80px;">
+            <TextField fx:id="firstnameTxt" layoutX="47.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Firstname" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="lastname" layoutX="205.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Lastname" style="-fx-background-radius: 80px;">
+            <TextField fx:id="lastnameTxt" layoutX="205.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Lastname" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="street" layoutX="47.0" layoutY="230.0" prefHeight="35.0" prefWidth="230.0" promptText="Street" style="-fx-background-radius: 80px;">
+            <TextField fx:id="streetTxt" layoutX="47.0" layoutY="230.0" prefHeight="35.0" prefWidth="230.0" promptText="Street" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="houseNumber" layoutX="285.0" layoutY="230.0" prefHeight="35.0" prefWidth="70.0" promptText="No." style="-fx-background-radius: 80px;">
+            <TextField fx:id="houseNumberTxt" layoutX="285.0" layoutY="230.0" prefHeight="35.0" prefWidth="70.0" promptText="No." style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="zipCode" layoutX="47.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="ZIP" style="-fx-background-radius: 80px;">
+            <TextField fx:id="zipCodeTxt" layoutX="47.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="ZIP" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" layoutX="205.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="City" style="-fx-background-radius: 80px;">
+            <TextField fx:id="cityTxt" layoutX="205.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="City" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="state" layoutX="47.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="State" style="-fx-background-radius: 80px;">
+            <TextField fx:id="stateTxt" layoutX="47.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="State" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="land" layoutX="205.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="Land" style="-fx-background-radius: 80px;">
+            <TextField fx:id="landTxt" layoutX="205.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="Land" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
@@ -72,6 +72,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="errorLabel" layoutX="118.0" layoutY="401.0" prefHeight="17.0" prefWidth="161.0" textFill="#b71313" />
          </children>
       </AnchorPane>
    </children>

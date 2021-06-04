@@ -3,6 +3,7 @@ package FurnitureStore.employee;
 import FurnitureStore.base.Controller;
 import FurnitureStore.base.DBController;
 import FurnitureStore.models.ProductModel;
+import FurnitureStore.utils.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -56,10 +57,10 @@ public class EmployeeController implements Initializable{
     private Button SearchButton;
 
     @FXML
-    private ChoiceBox<?> ChoiceType;
+    private ChoiceBox<String> ChoiceType;
 
     @FXML
-    private ChoiceBox<?> ChoiceMaterial;
+    private ChoiceBox<String> ChoiceMaterial;
 
     @FXML
     private TextField txtMinPrice;
@@ -75,15 +76,40 @@ public class EmployeeController implements Initializable{
 
     ObservableList<ProductModel> olist = FXCollections.observableArrayList();
 
+
     @FXML
     public void FilterProductsOnAction(ActionEvent event) {
+        table.getItems().clear();
+
+            try {
+                double minPrice = Double.parseDouble(txtMinPrice.getText());
+                double maxPrice = Double.parseDouble(txtMaxPrice.getText());
+
+                String selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
+                executeSelectQuery(selectQuery);
+
+                setTableColumns();
+            } catch (Exception e) {
+                Alerts.createWarningAlert("Filter warning","Please select some values for the filter.","If you already entered some values, please make sure to only include numbers in the price fields.");
+                // Initialize table again with all tuples
+                String selectQuery = "select * from Product";
+                executeSelectQuery(selectQuery);
+                setTableColumns();
+            }
+
+
 
     }
 
 
     @FXML
     public void SearchByIDOnAction(ActionEvent event) {
-
+        table.getItems().clear();
+        String prodId = ProdID.getText();
+        String query = "select * from Product where productId = " +prodId;
+        executeSelectQuery(query);
+        setTableColumns();
+        emptyAllFields();
     }
 
     @FXML
@@ -107,22 +133,30 @@ public class EmployeeController implements Initializable{
 
     @FXML
     public void EditButtonOnAction(ActionEvent event) throws IOException {
-        Stage add = new Stage();
-        add.setTitle("Edit product");
-        add.setWidth(455);
-        add.setHeight(620);
-        add.setResizable(false);
-        Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        add.initOwner(owner);
-        add.initModality(Modality.WINDOW_MODAL);
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/EditProductView.fxml")));
-        Scene addScene = new Scene(parent);
-        add.setScene(addScene);
-        add.show();
+        ProductModel selected = table.getSelectionModel().getSelectedItem();
+        if(selected != null){
+            initializeProductParameter();
+            Stage add = new Stage();
+            add.setTitle("Edit product");
+            add.setWidth(455);
+            add.setHeight(620);
+            add.setResizable(false);
+            Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            add.initOwner(owner);
+            add.initModality(Modality.WINDOW_MODAL);
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("/FurnitureStore/employee/EditProductView.fxml")));
+            Scene addScene = new Scene(parent);
+            add.setScene(addScene);
+            add.show();
+        } else {
+            Alerts.createErrorAlert("Product could not be edited.","Edit Product","Please select the product you want to edit.");
+        }
+
     }
 
     @FXML
     public void AddButtonOnAction(ActionEvent event) throws IOException {
+        emptyAllFields();
         Stage add = new Stage();
         add.setTitle("Add a product");
         add.setWidth(455);
@@ -139,12 +173,17 @@ public class EmployeeController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String selectQuery = "select * from Product";
+        executeSelectQuery(selectQuery);
+        setTableColumns();
+        initializeAllChoiceBoxes();
+    }
 
-        //Create DB Connection
+    private void executeSelectQuery(String query) {
         try {
             DBController ctr = new DBController();
             Connection con = ctr.getConnection();
-            ResultSet rs = con.createStatement().executeQuery("select * from Product");
+            ResultSet rs = con.createStatement().executeQuery(query);
 
             //Read rows
             while(rs.next()){
@@ -161,8 +200,9 @@ public class EmployeeController implements Initializable{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
 
-        //Set table columns
+    private void setTableColumns() {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         TypeCol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
@@ -170,7 +210,40 @@ public class EmployeeController implements Initializable{
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
-
         table.setItems(olist);
+    }
+
+    private void initializeProductParameter() {
+        ProductModel selectedProduct = table.getSelectionModel().getSelectedItem();
+        TempProduct.setProductId(selectedProduct.getId());
+        TempProduct.setProductPrice(selectedProduct.getPrice());
+        TempProduct.setProductCategory(selectedProduct.getCategorie());
+        TempProduct.setProductSize(selectedProduct.getSize());
+        TempProduct.setProductDescription(selectedProduct.getDescription());
+        TempProduct.setProductMaterial(selectedProduct.getMaterial());
+        TempProduct.setAvailableProductAmount(selectedProduct.getAmount());
+    }
+
+    public void refreshAction(ActionEvent event) {
+        table.getItems().clear();
+        String selectQuery = "select * from Product";
+        executeSelectQuery(selectQuery);
+        setTableColumns();
+        emptyAllFields();
+
+    }
+
+    private void emptyAllFields() {
+        txtMinPrice.setText("");
+        txtMaxPrice.setText("");
+        ProdID.setText("");
+        ChoiceType.setValue("");
+        ChoiceMaterial.setValue("");
+    }
+
+    private void initializeAllChoiceBoxes() {
+        this.ChoiceType.getItems().clear();
+        this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
+        this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
     }
 }

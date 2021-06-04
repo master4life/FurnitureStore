@@ -2,16 +2,15 @@ package FurnitureStore.employee;
 
 import FurnitureStore.base.DBController;
 import FurnitureStore.models.ProductModel;
+import FurnitureStore.utils.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -50,43 +49,74 @@ public class AddProductController implements Initializable {
     @FXML
     private Button btnAdd;
 
-    // TODO: Error Handling
+    // TODO: Refactoring
     @FXML
     void addProduct(ActionEvent event) {
 
-        String productCategory = type.getValue();
+        boolean parsingSuccessfull;
 
-        String productMaterial = material1.getValue();
+        String productCategory = null;
+        String productMaterial = null;
+        double productPrice = 0;
+        String productSize = null;
+        String productDescription = null;
+        int productAmount = 0;
 
-        double productPrice = Double.parseDouble(txtPrice1.getText().trim());
+        try {
+            // Parsing input values
+             productCategory = type.getValue();
 
-        String productSize = txtHeight1.getText().trim() + "x" + txtLength1.getText().trim() + "x" + txtWidth1.getText().trim();
+             productMaterial = material1.getValue();
 
-        String productDescription = Description1.getText();
+             productPrice = Double.parseDouble(txtPrice1.getText().trim());
 
-        int productAmount = Integer.parseInt(txtAmount1.getText().trim());
+             productSize = txtHeight1.getText().trim() + "x" + txtLength1.getText().trim() + "x" + txtWidth1.getText().trim();
+
+             productDescription = Description1.getText();
+
+             productAmount = Integer.parseInt(txtAmount1.getText().trim());
+
+             parsingSuccessfull = true;
+        } catch (Exception e) {
+            Alerts.createErrorAlert("Add Product","Product could not be added.","The Product(s) could not be added. Please verify the entered data.");
+            parsingSuccessfull = false;
+        }
 
         //ProductModel productToBeAdded = new ProductModel(productCategory, productMaterial, productPrice, productSize, productDescription, productAmount);
-        try {
-            DBController dbController = new DBController();
-            Connection connection = dbController.getConnection();
-            Statement statement = connection.createStatement();
+        if (parsingSuccessfull) {
+            try {
+                // Creating Query
+                DBController dbController = new DBController();
+                Connection connection = dbController.getConnection();
+                Statement statement = connection.createStatement();
 
-            ResultSet rs = connection.createStatement().executeQuery("select * from Categorie" +
-                    " where name = \""+productCategory+"\"");
-            int cat = rs.getInt("categorieID");
-            String insertQuery = "insert into Product (categorie, material, price, size, describtion, amountAvailable)  values ("
-                                    + cat+",'"+productMaterial+"',"+productPrice+",'"
-                                    +productSize+"','"+productDescription+"',"+productAmount+")";
-            statement.executeUpdate(insertQuery);
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+                ResultSet rs = connection.createStatement().executeQuery("select * from Categorie" +
+                        " where name = \""+productCategory+"\"");
+                int cat = rs.getInt("categorieID");
+                String insertQuery = "insert into Product (categorie, material, price, size, describtion, amountAvailable)  values ("
+                        + cat+",'"+productMaterial+"',"+productPrice+",'"
+                        +productSize+"','"+productDescription+"',"+productAmount+")";
+                statement.executeUpdate(insertQuery);
+                connection.close();
+
+                Alerts.createConfirmationAlert("Add Product","Product added.","The Product(s) were added successfully.");
+
+                final Node source = (Node) event.getSource();
+                final Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
+
+            } catch (SQLException throwable) {
+                //throwable.printStackTrace();
+                Alerts.createErrorAlert("Add Product","Product could not be added.","The Product(s) could not be added because the database is locked. Please try again later.");
+            }
         }
+
+
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         this.type.getItems().clear();
         this.type.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
         this.material1.getItems().addAll("wood", "metal", "plastic", "upholstered");

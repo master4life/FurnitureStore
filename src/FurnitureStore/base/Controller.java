@@ -28,13 +28,13 @@ public class Controller {
         }
     }
 
-    public static void startEmployeeInterface(ActionEvent event, String fxmlResourceName){
+    public static void startUserInterface(ActionEvent event, String fxmlResourceName, String title){
         try {
             Parent empParent = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource(fxmlResourceName)));
             Scene empScene = new Scene(empParent);
             Stage empStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             empStage.setScene(empScene);
-            empStage.setTitle("Product overview");
+            empStage.setTitle(title);
             empStage.setMaximized(true);
             empStage.setResizable(true);
             empStage.show();
@@ -42,6 +42,8 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+
 
     public static void quitApplicationAlert(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
