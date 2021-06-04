@@ -117,9 +117,23 @@ public class EditProductController implements Initializable {
 
     }
 
-    // TODO: Error Handling and refactoring
+    // TODO: Error Handling
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        setTextFields();
+
+        setSizeFields();
+
+        initializeAllChoiceBoxes();
+
+        // Setting Values for choice boxes
+        this.Type2.setValue(this.Type2.getItems().get(TempProduct.getProductCategory()));
+        this.Material2.setValue(TempProduct.getProductMaterial());
+
+    }
+
+    private void setTextFields() {
         if (TempProduct.getProductCategory() == 1) {
             rbtnFurniture1.setSelected(true);
         }
@@ -132,9 +146,10 @@ public class EditProductController implements Initializable {
         txtPrice2.setText(String.valueOf(TempProduct.getProductPrice()));
 
         Description2.setText(TempProduct.getProductDescription());
+    }
 
-
-        // Splitting the size string by using a regex
+    // Splitting the size string by using a regex
+    private void setSizeFields() {
         String productSizeFull = TempProduct.getProductSize();
         String[] productSizeSplit = productSizeFull.split("x", 3);
         String height = productSizeSplit[0];
@@ -144,16 +159,12 @@ public class EditProductController implements Initializable {
         txtHeight2.setText(height);
         txtWidth2.setText(width);
         txtLength2.setText(length);
+    }
 
-
+    private void initializeAllChoiceBoxes() {
         this.Type2.getItems().clear();
         this.Type2.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
         this.Material2.getItems().addAll("wood", "metal", "plastic", "upholstered");
-
-        this.Type2.setValue(this.Type2.getItems().get(TempProduct.getProductCategory()));
-
-        this.Material2.setValue(TempProduct.getProductMaterial());
-
     }
 
     private void exitWindow(ActionEvent event) {
