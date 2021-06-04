@@ -98,4 +98,18 @@ public class ProductModel {
         }
         return "";
     }
+
+    public static int categorieInt(String categorie){
+        switch (categorie){
+            case "accessoire": return 1;
+            case "table": return 2;
+            case "closet": return 3;
+            case "sofa": return 4;
+            case "bed": return 5;
+            case "chair": return 6;
+            case "shelf": return 7;
+            case "refrigerator": return 8;
+        }
+        return 0;
+    }
 }

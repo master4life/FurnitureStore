@@ -10,6 +10,9 @@ public class DBController {
 
     private final String URL_TO_DB = "jdbc:sqlite:src/DB/FurnitureStore.db";
 
+/*    private final String  currentUsersHomeDir = System.getProperty("user.home");
+    private final String URL_TO_DB = "jdbc:sqlite:" + currentUsersHomeDir + "/FurnitureStore.db";*/
+
     public DBController() throws SQLException {
         connection = DriverManager.getConnection(URL_TO_DB);
     }

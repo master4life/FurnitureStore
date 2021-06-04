@@ -81,11 +81,55 @@ public class EmployeeController implements Initializable{
     public void FilterProductsOnAction(ActionEvent event) {
         table.getItems().clear();
 
-            try {
-                double minPrice = Double.parseDouble(txtMinPrice.getText());
-                double maxPrice = Double.parseDouble(txtMaxPrice.getText());
+        boolean categoryNotNull;
 
-                String selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
+        double minPrice = 0;
+        double maxPrice = 0;
+
+            try {
+                try {
+                    minPrice = Double.parseDouble(txtMinPrice.getText());
+                    maxPrice = Double.parseDouble(txtMaxPrice.getText());
+                } catch (Exception e) {
+                    System.out.println("No prices");
+                }
+
+                System.out.println(minPrice);
+                System.out.println(maxPrice);
+
+                int category = 0;
+                String material = "";
+
+                try {
+                    category = ProductModel.categorieInt(ChoiceType.getValue());
+                    categoryNotNull = true;
+                } catch (Exception e) {
+                    categoryNotNull = false;
+                }
+
+
+                try {
+                    material = ChoiceMaterial.getValue();
+                } catch (Exception e) {
+                    System.out.println("no material");
+                }
+
+
+
+
+                String selectQuery = "";
+                if (maxPrice != 0 && minPrice != 0) {
+                    selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
+                } else {
+                    selectQuery = "select * from Product where productID > -1";
+                }
+
+                if (categoryNotNull) {
+                    selectQuery = selectQuery + " and categorie = " + category;
+                }
+                if (material != null) {
+                    selectQuery = selectQuery + " and material = '" + material + "'";
+                }
                 executeSelectQuery(selectQuery);
 
                 setTableColumns();
