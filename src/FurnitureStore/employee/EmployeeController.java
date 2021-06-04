@@ -82,6 +82,7 @@ public class EmployeeController implements Initializable{
         table.getItems().clear();
 
         boolean categoryNotNull;
+        boolean materialNotNull;
 
         double minPrice = 0;
         double maxPrice = 0;
@@ -110,8 +111,10 @@ public class EmployeeController implements Initializable{
 
                 try {
                     material = ChoiceMaterial.getValue();
+                    materialNotNull = true;
                 } catch (Exception e) {
                     System.out.println("no material");
+                    materialNotNull = false;
                 }
 
 
@@ -124,10 +127,10 @@ public class EmployeeController implements Initializable{
                     selectQuery = "select * from Product where productID > -1";
                 }
 
-                if (categoryNotNull) {
+                if (categoryNotNull && category != 0) {
                     selectQuery = selectQuery + " and categorie = " + category;
                 }
-                if (material != null) {
+                if (material != null && materialNotNull && !material.equals("")) {
                     selectQuery = selectQuery + " and material = '" + material + "'";
                 }
                 executeSelectQuery(selectQuery);
