@@ -72,7 +72,7 @@ public class EditProductController implements Initializable {
 
             productPrice = Double.parseDouble(txtPrice2.getText().trim());
 
-            productSize = txtHeight2.getText().trim() + "x" + txtLength2.getText().trim() + "x" + txtWidth2.getText().trim();
+            productSize = txtHeight2.getText().trim() + "x" + txtWidth2.getText().trim() + "x" + txtLength2.getText().trim();
 
             productDescription = Description2.getText();
 
@@ -105,9 +105,7 @@ public class EditProductController implements Initializable {
 
                 Alerts.createConfirmationAlert("Edit Product","Product edited.","The Product has been edited successfully.");
 
-                final Node source = (Node) event.getSource();
-                final Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
+                exitWindow(event);
 
             } catch (SQLException throwables) {
                 Alerts.createErrorAlert("Edit Product","Product could not be edited.","The Product could not be edited because the database is locked. Please try again later.");
@@ -144,8 +142,8 @@ public class EditProductController implements Initializable {
         String length = productSizeSplit[2];
 
         txtHeight2.setText(height);
-        txtLength2.setText(length);
         txtWidth2.setText(width);
+        txtLength2.setText(length);
 
 
         this.Type2.getItems().clear();
@@ -156,5 +154,11 @@ public class EditProductController implements Initializable {
 
         this.Material2.setValue(TempProduct.getProductMaterial());
 
+    }
+
+    private void exitWindow(ActionEvent event) {
+        final Node source = (Node) event.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
