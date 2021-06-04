@@ -2,6 +2,7 @@ package FurnitureStore.employee;
 
 import FurnitureStore.base.DBController;
 import FurnitureStore.models.ProductModel;
+import FurnitureStore.utils.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,11 +78,7 @@ public class AddProductController implements Initializable {
 
              parsingSuccessfull = true;
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Add Product");
-            alert.setTitle("Product could not be added.");
-            alert.setContentText("The Product(s) could not be added. Please verify the entered data.");
-            alert.show();
+            Alerts.createErrorAlert("Add Product","Product could not be added.","The Product(s) could not be added. Please verify the entered data.");
             parsingSuccessfull = false;
         }
 
@@ -102,11 +99,7 @@ public class AddProductController implements Initializable {
                 statement.executeUpdate(insertQuery);
                 connection.close();
 
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Add Product");
-                alert.setTitle("Product added.");
-                alert.setContentText("The Product(s) were added successfully.");
-                alert.show();
+                Alerts.createConfirmationAlert("Add Product","Product added.","The Product(s) were added successfully.");
 
                 final Node source = (Node) event.getSource();
                 final Stage stage = (Stage) source.getScene().getWindow();
@@ -114,12 +107,7 @@ public class AddProductController implements Initializable {
 
             } catch (SQLException throwable) {
                 //throwable.printStackTrace();
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Add Product");
-                alert.setTitle("Product could not be added.");
-                alert.setContentText("The Product(s) could not be added because the database is locked. Please try again later.");
-                alert.show();
-
+                Alerts.createErrorAlert("Add Product","Product could not be added.","The Product(s) could not be added because the database is locked. Please try again later.");
             }
         }
 
@@ -129,7 +117,6 @@ public class AddProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         this.type.getItems().clear();
         this.type.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
         this.material1.getItems().addAll("wood", "metal", "plastic", "upholstered");

@@ -3,6 +3,7 @@ package FurnitureStore.employee;
 import FurnitureStore.base.Controller;
 import FurnitureStore.base.DBController;
 import FurnitureStore.models.ProductModel;
+import FurnitureStore.utils.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -89,12 +90,7 @@ public class EmployeeController implements Initializable{
 
                 setTableColumns();
             } catch (Exception e) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Filter warning");
-                alert.setHeaderText("Please select some values for the filter.");
-                alert.setContentText("If you already entered some values, please make sure to only include numbers in the price fields.");
-                alert.show();
-
+                Alerts.createWarningAlert("Filter warning","Please select some values for the filter.","If you already entered some values, please make sure to only include numbers in the price fields.");
                 // Initialize table again with all tuples
                 String selectQuery = "select * from Product";
                 executeSelectQuery(selectQuery);
@@ -153,11 +149,7 @@ public class EmployeeController implements Initializable{
             add.setScene(addScene);
             add.show();
         } else {
-            Alert err = new Alert(Alert.AlertType.ERROR);
-            err.setHeaderText("Product could not be added.");
-            err.setTitle("Edit Product");
-            err.setContentText("Please select the product you want to edit.");
-            err.show();
+            Alerts.createErrorAlert("Product could not be edited.","Edit Product","Please select the product you want to edit.");
         }
 
     }
@@ -181,14 +173,10 @@ public class EmployeeController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         String selectQuery = "select * from Product";
         executeSelectQuery(selectQuery);
         setTableColumns();
-
-        this.ChoiceType.getItems().clear();
-        this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
-        this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
+        initializeAllChoiceBoxes();
     }
 
     private void executeSelectQuery(String query) {
@@ -251,5 +239,11 @@ public class EmployeeController implements Initializable{
         ProdID.setText("");
         ChoiceType.setValue("");
         ChoiceMaterial.setValue("");
+    }
+
+    private void initializeAllChoiceBoxes() {
+        this.ChoiceType.getItems().clear();
+        this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
+        this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
     }
 }

@@ -1,6 +1,7 @@
 package FurnitureStore.employee;
 
 import FurnitureStore.base.DBController;
+import FurnitureStore.utils.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -79,11 +80,7 @@ public class EditProductController implements Initializable {
 
             parsingSuccessfull = true;
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Edit Product");
-            alert.setTitle("Product could not be edited.");
-            alert.setContentText("The Product could not be edited. Please verify the entered data.");
-            alert.show();
+            Alerts.createErrorAlert("Edit Product","Product could not be edited.","The Product could not be edited. Please verify the entered data.");
             parsingSuccessfull = false;
         }
 
@@ -106,22 +103,14 @@ public class EditProductController implements Initializable {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
 
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Edit Product");
-                alert.setTitle("Product edited.");
-                alert.setContentText("The Product has been edited successfully.");
-                alert.show();
+                Alerts.createConfirmationAlert("Edit Product","Product edited.","The Product has been edited successfully.");
 
                 final Node source = (Node) event.getSource();
                 final Stage stage = (Stage) source.getScene().getWindow();
                 stage.close();
 
             } catch (SQLException throwables) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Edit Product");
-                alert.setTitle("Product could not be edited.");
-                alert.setContentText("The Product could not be edited because the database is locked. Please try again later.");
-                alert.show();
+                Alerts.createErrorAlert("Edit Product","Product could not be edited.","The Product could not be edited because the database is locked. Please try again later.");
                 throwables.printStackTrace();
             }
         }
