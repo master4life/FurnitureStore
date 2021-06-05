@@ -21,6 +21,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -30,10 +31,10 @@ import java.util.ResourceBundle;
 public class CustomerController implements Initializable {
 
     @FXML
-    private ChoiceBox<?> ChoiceType;
+    private ChoiceBox<String> ChoiceType;
 
     @FXML
-    private ChoiceBox<?> ChoiceMaterial;
+    private ChoiceBox<String> ChoiceMaterial;
 
     @FXML
     private TextField txtMinPrice;
@@ -87,7 +88,21 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void FilterProductsOnAction(ActionEvent event) {
+    void refreshOnAction(ActionEvent event) throws SQLException {
+        //refresh table
+        table.getItems().clear();
+        //clear filter options
+        txtMinPrice = null;
+        txtMaxPrice = null;
+        ChoiceType.setValue(null);
+        ChoiceMaterial.setValue(null);
+        loadTable();
+    }
+
+    @FXML
+    void FilterProductsOnAction(ActionEvent event) throws SQLException {
+
+        loadTable();
 
     }
 
@@ -111,39 +126,41 @@ public class CustomerController implements Initializable {
     void addToCartAction(ActionEvent event) {
         ProductModel selected = table.getSelectionModel().getSelectedItem();
 
-        if(selected == null){
+        if (selected == null) {
             Alert err = new Alert(Alert.AlertType.ERROR);
             err.setTitle("Error");
             err.setContentText("No product selected");
             err.show();
-        }else{
+        } else {
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Confirmation");
             dialog.getDialogPane().setContentText("Amount: ");
             Optional<String> result = dialog.showAndWait();
             TextField input = dialog.getEditor();
 
-            try{
+            try {
                 int amount = Integer.parseInt(input.getText());
-                if(amount > selected.getAmount()) {
+                if (amount > selected.getAmount()) {
                     Alert err = new Alert(Alert.AlertType.ERROR);
                     err.setTitle("Error");
                     err.setContentText("There are not enough on stock");
                     err.show();
-                }else{
+                } else {
                     Cart.add(new CartItem(selected.getId(), ProductModel.categorieStr(selected.getCategorie().intValue()), amount,
-                            selected.getPrice()*amount));
+                            selected.getPrice() * amount));
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
-                Alert err = new Alert(Alert.AlertType.ERROR);
-                err.setTitle("Error");
-                err.setContentText("Input was not correct");
-                err.show();
+                if(input.getText().length() != 0) {
+                    Alert err = new Alert(Alert.AlertType.ERROR);
+                    err.setTitle("Error");
+                    err.setContentText("Input was not correct");
+                    err.show();
+                }
             }
 
 
-            }
+        }
 
 
     }
@@ -151,31 +168,15 @@ public class CustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //Create DB Connection
         try {
-            DBController ctr = new DBController();
-            Connection con = ctr.getConnection();
-            ResultSet rs = con.createStatement().executeQuery("select * from Product");
-
-            //Read rows
-            while(rs.next()){
-                olist.add(new ProductModel(rs.getInt("productID"),
-                        rs.getInt("categorie"),
-                        rs.getString("material"),
-                        rs.getDouble("price"),
-                        rs.getString("size"),
-                        rs.getString("describtion"),
-                        rs.getInt("amountAvailable")));
-            }
-            rs.close();
-            con.close();
+            loadTable();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
         //Set table columns
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        TypeCol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+        TypeCol.setCellValueFactory(new PropertyValueFactory<>("strCategorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -184,6 +185,74 @@ public class CustomerController implements Initializable {
 
         table.setItems(olist);
 
+        this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
+        this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
+
     }
 
+    public void loadTable() throws SQLException {
+        String querry = "select * from product where ";
+        int criterias = 0;
+        //Check min max price
+        double minPrice;
+        double maxPrice;
+        try {
+            if (txtMinPrice != null && txtMinPrice.getLength() != 0) {
+                minPrice = Double.parseDouble(txtMinPrice.getText());
+                querry += "price >= " + minPrice + " and";
+                criterias++;
+            }
+            if (txtMaxPrice != null && txtMaxPrice.getLength() != 0) {
+                maxPrice = Double.parseDouble(txtMaxPrice.getText());
+                querry += " price <= " + maxPrice + " and";
+                criterias++;
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            Alert err = new Alert(Alert.AlertType.ERROR);
+            err.setTitle("Error");
+            err.setContentText("Input error. You have to enter numbers.");
+            err.show();
+            return;
+        }
+
+        String type = ChoiceType.getValue();
+        String material = ChoiceMaterial.getValue();
+
+        if (type != null) {
+            querry += " categorie = " + ProductModel.categorieInt(type) + " and";
+            criterias++;
+        }
+        if (material != null) {
+            querry += " material = \"" + material +"\"";
+            criterias++;
+        } else
+            querry += " 1";
+
+
+        if (criterias == 0) {
+            querry = "select * from product";
+        }
+
+        table.getItems().clear();
+
+        DBController ctr = new DBController();
+        Connection con = ctr.getConnection();
+        ResultSet rs = con.createStatement().executeQuery(querry);
+
+        //Read rows
+        while (rs.next()) {
+            olist.add(new ProductModel(rs.getInt("productID"),
+                    rs.getInt("categorie"),
+                    rs.getString("material"),
+                    rs.getDouble("price"),
+                    rs.getString("size"),
+                    rs.getString("describtion"),
+                    rs.getInt("amountAvailable")));
+        }
+        rs.close();
+        con.close();
+
+
+    }
 }

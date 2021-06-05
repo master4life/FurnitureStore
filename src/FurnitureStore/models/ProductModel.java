@@ -4,6 +4,7 @@ public class ProductModel {
 
     private Integer id;
     private Integer categorie;
+    private String strCategorie;
     private String material;
     private Double price;
     private String size;
@@ -18,6 +19,7 @@ public class ProductModel {
         this.size = size;
         this.description = description;
         this.amount = Integer.valueOf(amount);
+        this.strCategorie = categorieStr(categorie);
     }
 
     public ProductModel(int categorie, String material, double price, String size, String description, int amount) {
@@ -27,6 +29,7 @@ public class ProductModel {
         this.size = size;
         this.description = description;
         this.amount = Integer.valueOf(amount);
+        this.strCategorie = categorieStr(categorie);
     }
 
     public Integer getId() {
@@ -83,6 +86,14 @@ public class ProductModel {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getStrCategorie() {
+        return strCategorie;
+    }
+
+    public void setStrCategorie(String strCategorie) {
+        this.strCategorie = strCategorie;
     }
 
     public static String categorieStr(int categorie){

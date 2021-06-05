@@ -242,7 +242,7 @@ public class EmployeeController implements Initializable{
 
     private void setTableColumns() {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        TypeCol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+        TypeCol.setCellValueFactory(new PropertyValueFactory<>("strCategorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
