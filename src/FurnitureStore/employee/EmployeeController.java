@@ -81,11 +81,51 @@ public class EmployeeController implements Initializable{
     public void FilterProductsOnAction(ActionEvent event) {
         table.getItems().clear();
 
-            try {
-                double minPrice = Double.parseDouble(txtMinPrice.getText());
-                double maxPrice = Double.parseDouble(txtMaxPrice.getText());
+        boolean categoryNotNull;
+        boolean materialNotNull;
 
-                String selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
+        double minPrice = 0;
+        double maxPrice = 0;
+
+            try {
+                try {
+                    minPrice = Double.parseDouble(txtMinPrice.getText());
+                    maxPrice = Double.parseDouble(txtMaxPrice.getText());
+                } catch (Exception e) {
+                    System.out.println("No prices");
+                }
+
+                int category = 0;
+                String material = "";
+
+                try {
+                    category = ProductModel.categorieInt(ChoiceType.getValue());
+                    categoryNotNull = true;
+                } catch (Exception e) {
+                    categoryNotNull = false;
+                }
+
+
+                try {
+                    material = ChoiceMaterial.getValue();
+                    materialNotNull = true;
+                } catch (Exception e) {
+                    materialNotNull = false;
+                }
+
+                String selectQuery = "";
+                if (maxPrice != 0 && minPrice != 0) {
+                    selectQuery = "select * from Product where price >= " + minPrice + " and price <= " + maxPrice;
+                } else {
+                    selectQuery = "select * from Product where productID > -1";
+                }
+
+                if (categoryNotNull && category != 0) {
+                    selectQuery = selectQuery + " and categorie = " + category;
+                }
+                if (material != null && materialNotNull && !material.equals("")) {
+                    selectQuery = selectQuery + " and material = '" + material + "'";
+                }
                 executeSelectQuery(selectQuery);
 
                 setTableColumns();
@@ -96,8 +136,6 @@ public class EmployeeController implements Initializable{
                 executeSelectQuery(selectQuery);
                 setTableColumns();
             }
-
-
 
     }
 
@@ -204,7 +242,7 @@ public class EmployeeController implements Initializable{
 
     private void setTableColumns() {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        TypeCol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+        TypeCol.setCellValueFactory(new PropertyValueFactory<>("strCategorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));

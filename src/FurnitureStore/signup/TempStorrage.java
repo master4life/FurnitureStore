@@ -21,7 +21,5 @@ public class TempStorrage {
     public static String getEmail(){
         return pass;
     }
-    public static void setEmail(String _email){
-        pass = _email;
-    }
+    public static void setEmail(String _email){ email = _email; }
 }

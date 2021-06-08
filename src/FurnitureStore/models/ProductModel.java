@@ -4,6 +4,7 @@ public class ProductModel {
 
     private Integer id;
     private Integer categorie;
+    private String strCategorie;
     private String material;
     private Double price;
     private String size;
@@ -18,6 +19,7 @@ public class ProductModel {
         this.size = size;
         this.description = description;
         this.amount = Integer.valueOf(amount);
+        this.strCategorie = categorieStr(categorie);
     }
 
     public ProductModel(int categorie, String material, double price, String size, String description, int amount) {
@@ -27,6 +29,7 @@ public class ProductModel {
         this.size = size;
         this.description = description;
         this.amount = Integer.valueOf(amount);
+        this.strCategorie = categorieStr(categorie);
     }
 
     public Integer getId() {
@@ -85,6 +88,14 @@ public class ProductModel {
         this.amount = amount;
     }
 
+    public String getStrCategorie() {
+        return strCategorie;
+    }
+
+    public void setStrCategorie(String strCategorie) {
+        this.strCategorie = strCategorie;
+    }
+
     public static String categorieStr(int categorie){
         switch (categorie){
             case 1: return "accessoire";
@@ -97,5 +108,19 @@ public class ProductModel {
             case 8: return "refrigerator";
         }
         return "";
+    }
+
+    public static int categorieInt(String categorie){
+        switch (categorie){
+            case "accessoire": return 1;
+            case "table": return 2;
+            case "closet": return 3;
+            case "sofa": return 4;
+            case "bed": return 5;
+            case "chair": return 6;
+            case "shelf": return 7;
+            case "refrigerator": return 8;
+        }
+        return 0;
     }
 }
