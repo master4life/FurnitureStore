@@ -42,7 +42,7 @@ public class EmployeeController implements Initializable{
     private TableColumn<ProductModel, Double> sizeCol;
 
     @FXML
-    private TableColumn<ProductModel, String> descCol;
+    private TableColumn<ProductModel, String> nameCol;
 
     @FXML
     private TableColumn<ProductModel, Double> priceCol;
@@ -209,6 +209,14 @@ public class EmployeeController implements Initializable{
         add.show();
     }
 
+    @FXML
+    public void refreshOnAction(ActionEvent event) {
+        table.getItems().clear();
+        String selectQuery = "select * from Product";
+        executeSelectQuery(selectQuery);
+        setTableColumns();
+        emptyAllFields();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String selectQuery = "select * from Product";
@@ -230,7 +238,7 @@ public class EmployeeController implements Initializable{
                         rs.getString("material"),
                         rs.getDouble("price"),
                         rs.getString("size"),
-                        rs.getString("describtion"),
+                        rs.getString("name"),
                         rs.getInt("amountAvailable")));
             }
             rs.close();
@@ -245,7 +253,7 @@ public class EmployeeController implements Initializable{
         TypeCol.setCellValueFactory(new PropertyValueFactory<>("strCategorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
-        descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         table.setItems(olist);
@@ -257,19 +265,11 @@ public class EmployeeController implements Initializable{
         TempProduct.setProductPrice(selectedProduct.getPrice());
         TempProduct.setProductCategory(selectedProduct.getCategorie());
         TempProduct.setProductSize(selectedProduct.getSize());
-        TempProduct.setProductDescription(selectedProduct.getDescription());
+        TempProduct.setProductName(selectedProduct.getName());
         TempProduct.setProductMaterial(selectedProduct.getMaterial());
         TempProduct.setAvailableProductAmount(selectedProduct.getAmount());
     }
 
-    public void refreshAction(ActionEvent event) {
-        table.getItems().clear();
-        String selectQuery = "select * from Product";
-        executeSelectQuery(selectQuery);
-        setTableColumns();
-        emptyAllFields();
-
-    }
 
     private void emptyAllFields() {
         txtMinPrice.setText("");

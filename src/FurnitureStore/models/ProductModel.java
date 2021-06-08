@@ -8,26 +8,26 @@ public class ProductModel {
     private String material;
     private Double price;
     private String size;
-    private String description;
+    private String name;
     private Integer amount;
 
-    public ProductModel(int id, int categorie, String material, double price, String size, String description, int amount) {
+    public ProductModel(int id, int categorie, String material, double price, String size, String name, int amount) {
         this.id = Integer.valueOf(id);
         this.categorie =  Integer.valueOf(categorie);
         this.material = material;
         this.price = Double.valueOf(price);
         this.size = size;
-        this.description = description;
+        this.name = name;
         this.amount = Integer.valueOf(amount);
         this.strCategorie = categorieStr(categorie);
     }
 
-    public ProductModel(int categorie, String material, double price, String size, String description, int amount) {
+    public ProductModel(int categorie, String material, double price, String size, String name, int amount) {
         this.categorie =  Integer.valueOf(categorie);
         this.material = material;
         this.price = Double.valueOf(price);
         this.size = size;
-        this.description = description;
+        this.name = name;
         this.amount = Integer.valueOf(amount);
         this.strCategorie = categorieStr(categorie);
     }
@@ -72,12 +72,12 @@ public class ProductModel {
         this.size = size;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String name) {
+        this.name = name;
     }
 
     public Integer getAmount() {

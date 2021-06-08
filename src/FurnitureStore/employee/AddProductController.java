@@ -44,7 +44,7 @@ public class AddProductController implements Initializable {
     private TextField txtAmount1;
 
     @FXML
-    private TextArea Description1;
+    private TextField Name1;
 
     @FXML
     private Button btnAdd;
@@ -59,7 +59,7 @@ public class AddProductController implements Initializable {
         String productMaterial = null;
         double productPrice = 0;
         String productSize = null;
-        String productDescription = null;
+        String productName = null;
         int productAmount = 0;
 
         try {
@@ -72,7 +72,7 @@ public class AddProductController implements Initializable {
 
              productSize = txtHeight1.getText().trim() + "x" + txtLength1.getText().trim() + "x" + txtWidth1.getText().trim();
 
-             productDescription = Description1.getText();
+             productName = Name1.getText();
 
              productAmount = Integer.parseInt(txtAmount1.getText().trim());
 
@@ -93,9 +93,9 @@ public class AddProductController implements Initializable {
                 ResultSet rs = connection.createStatement().executeQuery("select * from Categorie" +
                         " where name = \""+productCategory+"\"");
                 int cat = rs.getInt("categorieID");
-                String insertQuery = "insert into Product (categorie, material, price, size, describtion, amountAvailable)  values ("
+                String insertQuery = "insert into Product (categorie, material, price, size, name, amountAvailable)  values ("
                         + cat+",'"+productMaterial+"',"+productPrice+",'"
-                        +productSize+"','"+productDescription+"',"+productAmount+")";
+                        +productSize+"','"+productName+"',"+productAmount+")";
                 statement.executeUpdate(insertQuery);
                 connection.close();
 

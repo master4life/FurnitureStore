@@ -51,12 +51,12 @@ public class LoginController implements Initializable {
         if(radioCustomer.isSelected()){
             sql = "select password from CustomerAccount where username = ?";
             nextScene = "/FurnitureStore/customer/CustomerView.fxml";
-            title = "Furniture Shop";
+            //title = "Furniture Shop";
             type = 1;
         }else{
             sql = "select password from EmployeeAccount where username = ?";
             nextScene = "/FurnitureStore/employee/EmployeeView.fxml";
-            title = "Products overview";
+            //title = "Products overview";
             type = 2;
         }
 
@@ -65,7 +65,7 @@ public class LoginController implements Initializable {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        //Create querry
+        //Create query
         ps = connection.getConnection().prepareStatement(sql);
         ps.setString(1, user);
        // ps.setString(2, user);
@@ -84,7 +84,8 @@ public class LoginController implements Initializable {
         if(realPass.equals(pass)){
             CurrentUser.setUsername(user);
             CurrentUser.setType(type);
-            Controller.startUserInterface(event, nextScene, title);
+            Controller.changeScene(event, nextScene);
+
         }else{
             loginLabel.setText("Password not correct");
         }

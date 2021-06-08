@@ -58,7 +58,7 @@ public class CustomerController implements Initializable {
     private TableColumn<ProductModel, Double> sizeCol;
 
     @FXML
-    private TableColumn<ProductModel, String> descCol;
+    private TableColumn<ProductModel, String> nameCol;
 
     @FXML
     private TableColumn<ProductModel, Double> priceCol;
@@ -179,7 +179,7 @@ public class CustomerController implements Initializable {
         TypeCol.setCellValueFactory(new PropertyValueFactory<>("strCategorie"));
         materialCol.setCellValueFactory(new PropertyValueFactory<>("material"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
-        descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         inStock.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
@@ -247,7 +247,7 @@ public class CustomerController implements Initializable {
                     rs.getString("material"),
                     rs.getDouble("price"),
                     rs.getString("size"),
-                    rs.getString("describtion"),
+                    rs.getString("name"),
                     rs.getInt("amountAvailable")));
         }
         rs.close();

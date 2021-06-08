@@ -7,7 +7,7 @@ public class TempProduct {
     private static String productMaterial;
     private static Double productPrice;
     private static String productSize;
-    private static String productDescription;
+    private static String productName;
     private static int availableProductAmount;
 
     public static int getProductId() {
@@ -50,12 +50,12 @@ public class TempProduct {
         productSize = _productSize;
     }
 
-    public static String getProductDescription() {
-        return productDescription;
+    public static String getProductName() {
+        return productName;
     }
 
-    public static void setProductDescription(String _productDescription) {
-        productDescription = _productDescription;
+    public static void setProductName(String _productName) {
+        productName = _productName;
     }
 
     public static int getAvailableProductAmount() {

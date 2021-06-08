@@ -17,19 +17,19 @@
             <Image url="@../../Resources/img/Background_mirror.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="510.0" layoutY="-5.0" prefHeight="611.0" prefWidth="417.0">
+      <AnchorPane layoutX="377.0" layoutY="-1.0" prefHeight="600.0" prefWidth="550.0">
          <children>
-            <Text layoutX="45.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum!">
+            <Text layoutX="62.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Come on, take a seat!" textAlignment="RIGHT" wrappingWidth="473.0">
                <font>
                   <Font name="Avenir Next Bold" size="45.0" />
                </font>
             </Text>
-            <Text layoutX="45.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, &#10;sed diam nonumy eirmod tempor invidunt ut &#10;labore et dolore magna aliquyam erat,&#10;sed diam voluptua.">
+            <Text layoutX="67.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create your account in just a few seconds and dip into our futuristic world of neo-furnitures. Pick your favorite items from over 250.000 sophisticated products. &#10;&#10;Join us now!" textAlignment="RIGHT" wrappingWidth="466.0">
                <font>
-                  <Font name="Avenir Book" size="14.0" />
+                  <Font name="Avenir Book" size="18.0" />
                </font>
             </Text>
-            <ImageView fx:id="registerButton" fitHeight="130.0" fitWidth="130.0" layoutX="130.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="registerButton" fitHeight="204.0" fitWidth="325.0" layoutX="238.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Resources/img/signup_icon.png" />
                </image>

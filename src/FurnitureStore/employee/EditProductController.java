@@ -45,7 +45,7 @@ public class EditProductController implements Initializable {
     private TextField txtAmount2;
 
     @FXML
-    private TextArea Description2;
+    private TextField Name2;
 
     @FXML
     private Button btnEdit;
@@ -61,7 +61,7 @@ public class EditProductController implements Initializable {
         String productMaterial = null;
         double productPrice = 0;
         String productSize = null;
-        String productDescription = null;
+        String productName= null;
         int productAmount = 0;
 
         try {
@@ -74,7 +74,7 @@ public class EditProductController implements Initializable {
 
             productSize = txtHeight2.getText().trim() + "x" + txtWidth2.getText().trim() + "x" + txtLength2.getText().trim();
 
-            productDescription = Description2.getText();
+            productName = Name2.getText();
 
             productAmount = Integer.parseInt(txtAmount2.getText().trim());
 
@@ -91,12 +91,12 @@ public class EditProductController implements Initializable {
                 dbController = new DBController();
                 Connection connection = dbController.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(
-                        "update Product set material = ?, price = ?, size = ?, describtion = ?, amountAvailable = ? where productID = ?"
+                        "update Product set material = ?, price = ?, size = ?, name = ?, amountAvailable = ? where productID = ?"
                 );
                 preparedStatement.setString(1, productMaterial);
                 preparedStatement.setDouble(2, productPrice);
                 preparedStatement.setString(3, productSize);
-                preparedStatement.setString(4, productDescription);
+                preparedStatement.setString(4, productName);
                 preparedStatement.setInt(5, productAmount);
                 preparedStatement.setInt(6, TempProduct.getProductId());
 
@@ -145,7 +145,7 @@ public class EditProductController implements Initializable {
 
         txtPrice2.setText(String.valueOf(TempProduct.getProductPrice()));
 
-        Description2.setText(TempProduct.getProductDescription());
+        Name2.setText(TempProduct.getProductName());
     }
 
     // Splitting the size string by using a regex

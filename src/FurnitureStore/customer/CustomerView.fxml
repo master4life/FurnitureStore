@@ -24,63 +24,66 @@
       <Pane prefHeight="604.0" prefWidth="248.0" style="-fx-background-color: white; -fx-opacity: 0.9;" />
       <AnchorPane layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="604.0" prefWidth="248.0">
          <children>
-            <Button alignment="CENTER" layoutX="38.0" layoutY="538.0" mnemonicParsing="false" onAction="#MyReservationsButtonOnAction" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="My reservations">
+            <Button alignment="CENTER" layoutX="65.0" layoutY="540.0" mnemonicParsing="false" onAction="#MyReservationsButtonOnAction" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="My reservations">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="ChoiceType" layoutX="66.0" layoutY="154.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
-            <ChoiceBox fx:id="ChoiceMaterial" layoutX="65.0" layoutY="230.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
-            <TextField fx:id="txtMinPrice" layoutX="13.0" layoutY="307.0" prefHeight="25.0" prefWidth="105.0" promptText="From">
+            <ChoiceBox fx:id="ChoiceType" layoutX="130.0" layoutY="196.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
+            <ChoiceBox fx:id="ChoiceMaterial" layoutX="14.0" layoutY="196.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #DFE0DF#DFE0DF;" />
+            <TextField fx:id="txtMinPrice" layoutX="14.0" layoutY="265.0" prefHeight="25.0" prefWidth="105.0" promptText="From">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtMaxPrice" layoutX="124.0" layoutY="307.0" prefHeight="25.0" prefWidth="105.0" promptText="To">
+            <TextField fx:id="txtMaxPrice" layoutX="130.0" layoutY="265.0" prefHeight="25.0" prefWidth="105.0" promptText="To">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="98.0" layoutY="274.0" prefHeight="17.0" prefWidth="40.0" text="Price">
+            <Label layoutX="14.0" layoutY="240.0" prefHeight="17.0" prefWidth="40.0" text="Price">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="101.0" layoutY="123.0" prefHeight="17.0" prefWidth="43.0" text="Type">
+            <Label layoutX="130.0" layoutY="171.0" prefHeight="17.0" prefWidth="43.0" text="Type">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="97.0" layoutY="195.0" text="Material">
+            <Label layoutX="14.0" layoutY="171.0" text="Material">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" layoutX="77.0" layoutY="381.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
+            <Button alignment="CENTER" layoutX="74.0" layoutY="310.0" mnemonicParsing="false" onAction="#FilterProductsOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Filter">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" layoutX="41.0" layoutY="491.0" mnemonicParsing="false" onAction="#CartButtonOnAction" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Cart">
+            <Button alignment="CENTER" layoutX="74.0" layoutY="495.0" mnemonicParsing="false" onAction="#CartButtonOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF#DFE0DF #DFE0DF#DFE0DF; -fx-background-radius: 80px;" text="Cart">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="96.0" fitWidth="100.0" layoutX="75.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="129.0" fitWidth="195.0" layoutX="27.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Resources/img/signup_icon.png" />
                </image>
             </ImageView>
-            <Button layoutX="44.0" layoutY="441.0" mnemonicParsing="false" onAction="#refreshOnAction" prefHeight="40.0" prefWidth="165.0" text="Refresh" />
+            <Button alignment="CENTER" layoutX="74.0" layoutY="355.0" mnemonicParsing="false" onAction="#refreshOnAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Refresh">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font></Button>
          </children>
       </AnchorPane>
       <TableView fx:id="table" layoutX="257.0" layoutY="8.0" prefHeight="583.0" prefWidth="660.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="71.33334350585938" text="ID" />
+            <TableColumn fx:id="nameCol" prefWidth="156.0" text="Name" />
             <TableColumn fx:id="TypeCol" prefWidth="82.0" text="Type" />
             <TableColumn fx:id="materialCol" prefWidth="79.3333740234375" text="Material" />
             <TableColumn fx:id="sizeCol" prefWidth="103.99996948242188" text="Size" />
-            <TableColumn fx:id="descCol" prefWidth="156.0" text="Description" />
             <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="90.0" text="Price" />
             <TableColumn fx:id="inStock" prefWidth="75.0" text="In Stock" />
          </columns>
