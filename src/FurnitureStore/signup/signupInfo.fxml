@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.signup.SignupInfoController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="993.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="993.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Resources/img/Background_mirror.jpg" />
          </image>
@@ -57,11 +57,6 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="landTxt" layoutX="205.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="Land" style="-fx-background-radius: 80px;">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </TextField>
             <Button layoutX="205.0" layoutY="438.0" mnemonicParsing="false" onAction="#FinalRegisterButtonOnAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
                <font>
                   <Font name="Avenir Book" size="14.0" />
@@ -73,6 +68,11 @@
                </font>
             </Button>
             <Label fx:id="errorLabel" layoutX="118.0" layoutY="401.0" prefHeight="17.0" prefWidth="161.0" textFill="#b71313" />
+            <TextField fx:id="landTxt" layoutX="205.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="Country" style="-fx-background-radius: 80px;">
+               <font>
+                  <Font name="Avenir Book" size="14.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>
