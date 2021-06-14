@@ -6,69 +6,71 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.signup.SignupInfoController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="993.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="684.0" fitWidth="982.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Resources/img/Background_mirror.jpg" />
+            <Image url="@../../Resources/img/Background_Signup.jpg" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="600.0" prefWidth="404.0">
+      <AnchorPane layoutX="256.0" layoutY="2.0" prefHeight="604.0" prefWidth="404.0">
          <children>
-            <Label layoutX="120.0" layoutY="70.0" text="Sign up" textFill="WHITE">
+            <Pane layoutY="41.0" prefHeight="518.0" prefWidth="404.0" style="-fx-background-color: white; -fx-opacity: 0.2; -fx-background-radius: 30px;" />
+            <Label layoutX="120.0" layoutY="81.0" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="45.0" />
                </font>
             </Label>
-            <TextField fx:id="firstnameTxt" layoutX="47.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Firstname" style="-fx-background-radius: 80px;">
+            <TextField fx:id="firstnameTxt" layoutX="47.0" layoutY="186.0" prefHeight="35.0" prefWidth="150.0" promptText="Firstname" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="lastnameTxt" layoutX="205.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" promptText="Lastname" style="-fx-background-radius: 80px;">
+            <TextField fx:id="lastnameTxt" layoutX="205.0" layoutY="186.0" prefHeight="35.0" prefWidth="150.0" promptText="Lastname" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="streetTxt" layoutX="47.0" layoutY="230.0" prefHeight="35.0" prefWidth="230.0" promptText="Street" style="-fx-background-radius: 80px;">
+            <TextField fx:id="streetTxt" layoutX="47.0" layoutY="241.0" prefHeight="35.0" prefWidth="230.0" promptText="Street" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="houseNumberTxt" layoutX="285.0" layoutY="230.0" prefHeight="35.0" prefWidth="70.0" promptText="No." style="-fx-background-radius: 80px;">
+            <TextField fx:id="houseNumberTxt" layoutX="285.0" layoutY="241.0" prefHeight="35.0" prefWidth="70.0" promptText="No." style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="zipCodeTxt" layoutX="47.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="ZIP" style="-fx-background-radius: 80px;">
+            <TextField fx:id="zipCodeTxt" layoutX="47.0" layoutY="296.0" prefHeight="35.0" prefWidth="150.0" promptText="ZIP" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="cityTxt" layoutX="205.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" promptText="City" style="-fx-background-radius: 80px;">
+            <TextField fx:id="cityTxt" layoutX="205.0" layoutY="296.0" prefHeight="35.0" prefWidth="150.0" promptText="City" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="stateTxt" layoutX="47.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="State" style="-fx-background-radius: 80px;">
+            <TextField fx:id="stateTxt" layoutX="47.0" layoutY="351.0" prefHeight="35.0" prefWidth="150.0" promptText="State" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <Button layoutX="205.0" layoutY="438.0" mnemonicParsing="false" onAction="#FinalRegisterButtonOnAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
+            <Button layoutX="205.0" layoutY="449.0" mnemonicParsing="false" onAction="#FinalRegisterButtonOnAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="47.0" layoutY="437.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #DFE0DF; -fx-border-radius: 80px;" text="Back" textFill="WHITE">
+            <Button layoutX="47.0" layoutY="448.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #DFE0DF; -fx-border-radius: 80px;" text="Back" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="errorLabel" layoutX="118.0" layoutY="401.0" prefHeight="17.0" prefWidth="161.0" textFill="#b71313" />
-            <TextField fx:id="landTxt" layoutX="205.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" promptText="Country" style="-fx-background-radius: 80px;">
+            <Label fx:id="errorLabel" layoutX="118.0" layoutY="412.0" prefHeight="17.0" prefWidth="161.0" textFill="#b71313" />
+            <TextField fx:id="landTxt" layoutX="205.0" layoutY="351.0" prefHeight="35.0" prefWidth="150.0" promptText="Country" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>

@@ -217,6 +217,12 @@ public class EmployeeController implements Initializable{
         setTableColumns();
         emptyAllFields();
     }
+
+    @FXML
+    public void LogoutButtonOnAction(ActionEvent event){
+        Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String selectQuery = "select * from Product";
@@ -284,4 +290,6 @@ public class EmployeeController implements Initializable{
         this.ChoiceType.getItems().addAll("accessoire", "table", "closet", "sofa", "bed", "chair", "shelf", "refrigerator");
         this.ChoiceMaterial.getItems().addAll("wood", "metal", "plastic", "upholstered");
     }
+
+
 }

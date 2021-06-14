@@ -75,8 +75,8 @@ public class CustomerController implements Initializable {
     void CartButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Cart");
-        add.setWidth(600);
-        add.setHeight(400);
+        add.setWidth(480);
+        add.setHeight(520);
         add.setResizable(false);
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);
@@ -110,8 +110,8 @@ public class CustomerController implements Initializable {
     void MyReservationsButtonOnAction(ActionEvent event) throws IOException {
         Stage add = new Stage();
         add.setTitle("Reservations");
-        add.setWidth(600);
-        add.setHeight(400);
+        add.setWidth(480);
+        add.setHeight(450);
         add.setResizable(false);
         Stage owner = (Stage) ((Node) event.getSource()).getScene().getWindow();
         add.initOwner(owner);
@@ -120,6 +120,11 @@ public class CustomerController implements Initializable {
         Scene addScene = new Scene(parent);
         add.setScene(addScene);
         add.show();
+    }
+
+    @FXML
+    public void LogoutButtonOnAction(ActionEvent event){
+        Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
     }
 
     @FXML
