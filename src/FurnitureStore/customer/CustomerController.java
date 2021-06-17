@@ -1,5 +1,6 @@
 package FurnitureStore.customer;
 
+import FurnitureStore.CurrentUser;
 import FurnitureStore.base.Controller;
 import FurnitureStore.base.DBController;
 import FurnitureStore.models.ProductModel;
@@ -124,6 +125,7 @@ public class CustomerController implements Initializable {
 
     @FXML
     public void LogoutButtonOnAction(ActionEvent event){
+        CurrentUser.setId(0);
         Controller.changeScene(event, "/FurnitureStore/login/login.fxml");
     }
 

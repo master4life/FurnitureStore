@@ -19,6 +19,7 @@ public class CurrentUser {
     public static void setUsername(String _user){
         username = _user;
     }
+    public static void setId(int _id){id = _id;}
 
     public static int getId() throws SQLException {
         if(id != 0){
