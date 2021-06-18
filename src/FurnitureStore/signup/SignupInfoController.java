@@ -153,7 +153,7 @@ public class SignupInfoController
 
         CurrentUser.setUsername(TempStorrage.getUser());
         CurrentUser.setType(1);
-        Controller.startUserInterface(event, "/FurnitureStore/customer/CustomerView.fxml", "Furniture Shop");
+        Controller.changeScene(event, "/FurnitureStore/customer/CustomerView.fxml");
 
     }
 
