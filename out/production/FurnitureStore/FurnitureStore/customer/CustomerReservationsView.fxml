@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.customer.CustomerReservationController">
-   <top>
-      <Label prefHeight="81.0" prefWidth="365.0" text="My Reservations" textFill="#5e47a8" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-   </top>
-   <left>
-      <AnchorPane prefHeight="319.0" prefWidth="155.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="43.0" layoutY="125.0" mnemonicParsing="false" onAction="#viewOnAction" prefHeight="55.0" prefWidth="69.0" text="View" />
-         </children>
-      </AnchorPane>
-   </left>
-   <center>
-      <TableView fx:id="resTable" prefHeight="319.0" prefWidth="445.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="idCol" prefWidth="146.66666162014008" text="Reservation ID" />
-          <TableColumn fx:id="dateCol" prefWidth="151.99998474121094" text="Date" />
-            <TableColumn fx:id="totalPriceCol" prefWidth="142.66668701171875" text="Total Price" />
-        </columns>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.customer.CustomerReservationController">
+   <children>
+      <TableView fx:id="resTable" layoutX="18.0" layoutY="14.0" prefHeight="319.0" prefWidth="444.0" style="-fx-font-family: Avenir Book; -fx-font-size: 14px;" stylesheets="@../../Resources/stylings/ff_tableview-stylings.css">
+         <columns>
+            <TableColumn fx:id="idCol" editable="false" prefWidth="146.66666162014008" style="-fx-background-color: transparent;" text="Reservation ID" />
+            <TableColumn fx:id="dateCol" editable="false" prefWidth="151.99998474121094" style="-fx-background-color: transparent;" text="Date" />
+            <TableColumn fx:id="totalPriceCol" editable="false" prefWidth="142.66668701171875" style="-fx-background-color: transparent;" text="Total Price" />
+         </columns>
       </TableView>
-   </center>
-</BorderPane>
+      <Button layoutX="162.0" layoutY="351.0" mnemonicParsing="false" onAction="#viewOnAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="View">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

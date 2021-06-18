@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="927.0" stylesheets="@../../Resources/stylings/ff_tableview-stylings.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.employee.EmployeeController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="927.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -93,15 +93,16 @@
             </Button>
          </children>
       </AnchorPane>
-      <TableView fx:id="table" layoutX="257.0" layoutY="8.0" prefHeight="583.0" prefWidth="660.0">
+      <Pane layoutX="248.0" layoutY="-4.0" prefHeight="604.0" prefWidth="687.0" style="-fx-background-color: white;" />
+      <TableView fx:id="table" layoutX="257.0" layoutY="8.0" prefHeight="583.0" prefWidth="662.0" style="-fx-font-family: Avenir Book; -fx-font-size: 14px;">
          <columns>
-            <TableColumn fx:id="colID" prefWidth="69.0" text="ID" />
-            <TableColumn fx:id="nameCol" prefWidth="208.0" text="Name" />
-            <TableColumn fx:id="TypeCol" prefWidth="92.0" text="Type" />
-            <TableColumn fx:id="materialCol" prefWidth="79.0" text="Material" />
-            <TableColumn fx:id="sizeCol" prefWidth="89.0" text="Size" />
-            <TableColumn fx:id="priceCol" prefWidth="61.0" text="Price" />
-            <TableColumn fx:id="amountCol" prefWidth="62.0" text="Amount" />
+            <TableColumn fx:id="colID" editable="false" prefWidth="69.0" style="-fx-background-color: transparent;" text="ID" />
+            <TableColumn fx:id="nameCol" editable="false" prefWidth="169.0" style="-fx-background-color: transparent;" text="Name" />
+            <TableColumn fx:id="TypeCol" editable="false" prefWidth="72.0" style="-fx-background-color: transparent;" text="Type" />
+            <TableColumn fx:id="materialCol" editable="false" prefWidth="102.0" style="-fx-background-color: transparent;" text="Material" />
+            <TableColumn fx:id="sizeCol" editable="false" prefWidth="86.0" style="-fx-background-color: transparent;" text="Size" />
+            <TableColumn fx:id="priceCol" editable="false" prefWidth="81.0" style="-fx-background-color: transparent;" text="Price" />
+            <TableColumn fx:id="amountCol" editable="false" prefWidth="81.0" style="-fx-background-color: transparent;" text="Amount" />
          </columns>
          <contextMenu>
             <ContextMenu>
@@ -111,5 +112,10 @@
             </ContextMenu>
          </contextMenu>
       </TableView>
+      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#LogoutButtonOnAction" style="-fx-border-color: DF7D24; -fx-border-width: 1px; -fx-border-radius: 80px; -fx-background-color: transparent;" text="Logout" textFill="#df7d24">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

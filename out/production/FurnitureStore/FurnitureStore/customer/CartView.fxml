@@ -3,27 +3,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.customer.CartController">
-   <left>
-      <VBox prefHeight="400.0" prefWidth="151.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" onAction="#RemoveOnAction" prefHeight="201.0" prefWidth="151.0" text="Remove from cart" />
-            <Button mnemonicParsing="false" onAction="#ReservationOnAction" prefHeight="203.0" prefWidth="151.0" text="Make reservation" />
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <TableView fx:id="cartTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="idCol" prefWidth="103.3333410024643" text="Product ID" />
-          <TableColumn fx:id="typeCol" prefWidth="105.33332061767578" text="Product type" />
-            <TableColumn fx:id="amountCol" prefWidth="104.66667175292969" text="Amount" />
-            <TableColumn fx:id="priceCol" prefWidth="134.66668701171875" text="Total price" />
-        </columns>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FurnitureStore.customer.CartController">
+   <children>
+      <TableView fx:id="cartTable" layoutX="14.0" layoutY="14.0" prefHeight="389.0" prefWidth="452.0" style="-fx-font-family: Avenir Book; -fx-font-size: 14px;" stylesheets="@../../Resources/stylings/ff_tableview-stylings.css">
+         <columns>
+            <TableColumn fx:id="idCol" editable="false" prefWidth="103.3333410024643" style="-fx-background-color: transparent;" text="Product ID" />
+            <TableColumn fx:id="typeCol" editable="false" prefWidth="105.33332061767578" style="-fx-background-color: transparent;" text="Product Type" />
+            <TableColumn fx:id="amountCol" editable="false" prefWidth="104.66667175292969" style="-fx-background-color: transparent;" text="Amount" />
+            <TableColumn fx:id="priceCol" editable="false" prefWidth="134.66668701171875" style="-fx-background-color: transparent;" text="Total price" />
+         </columns>
       </TableView>
-   </center>
-</BorderPane>
+      <Button layoutX="65.0" layoutY="424.0" mnemonicParsing="false" onAction="#RemoveOnAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 80px; -fx-background-color: #580600;" text="Remove from cart" textFill="WHITE">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="265.0" layoutY="424.0" mnemonicParsing="false" onAction="#ReservationOnAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Make reservation">
+         <font>
+            <Font name="Avenir Book" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
