@@ -19,6 +19,7 @@
       <AnchorPane layoutX="256.0" layoutY="2.0" prefHeight="604.0" prefWidth="404.0">
          <children>
             <Pane layoutY="41.0" prefHeight="518.0" prefWidth="404.0" style="-fx-background-color: white; -fx-opacity: 0.2; -fx-background-radius: 30px;" />
+            <Label fx:id="errorLabel" alignment="CENTER" layoutX="119.0" layoutY="418.0" prefHeight="20.0" prefWidth="161.0" textFill="#b71313" />
             <Label layoutX="52.0" layoutY="81.0" text="Almost done..." textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="45.0" />
@@ -59,7 +60,7 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </TextField>
-            <Button layoutX="205.0" layoutY="449.0" mnemonicParsing="false" onAction="#FinalRegisterButtonOnAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
+            <Button layoutX="205.0" layoutY="448.0" mnemonicParsing="false" onAction="#FinalRegisterButtonOnAction" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #DFE0DF; -fx-background-radius: 80px;" text="Register">
                <font>
                   <Font name="Avenir Book" size="14.0" />
                </font>
@@ -69,7 +70,6 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="errorLabel" layoutX="118.0" layoutY="412.0" prefHeight="17.0" prefWidth="161.0" textFill="#b71313" />
             <TextField fx:id="landTxt" layoutX="205.0" layoutY="351.0" prefHeight="35.0" prefWidth="150.0" promptText="Country" style="-fx-background-radius: 80px;">
                <font>
                   <Font name="Avenir Book" size="14.0" />

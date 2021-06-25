@@ -73,7 +73,10 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </PasswordField>
-            <Label fx:id="errorLabel" layoutX="100.0" layoutY="380.0" prefHeight="25.0" prefWidth="201.0" textFill="#c92222" />
+            <Label fx:id="errorLabel" alignment="CENTER" layoutX="100.0" layoutY="395.0" prefHeight="20.0" prefWidth="201.0" textFill="#b52424">
+               <font>
+                  <Font name="Avenir Book" size="12.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>
