@@ -93,8 +93,8 @@ public class CustomerController implements Initializable {
         //refresh table
         table.getItems().clear();
         //clear filter options
-        txtMinPrice = null;
-        txtMaxPrice = null;
+        txtMinPrice.setText("");
+        txtMaxPrice.setText("");
         ChoiceType.setValue(null);
         ChoiceMaterial.setValue(null);
         loadTable();
@@ -215,7 +215,7 @@ public class CustomerController implements Initializable {
                 criterias++;
             }
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             Alert err = new Alert(Alert.AlertType.ERROR);
             err.setTitle("Error");
             err.setContentText("Input error. You have to enter numbers.");
