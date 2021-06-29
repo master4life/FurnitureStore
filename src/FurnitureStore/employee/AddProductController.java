@@ -71,6 +71,8 @@ public class AddProductController implements Initializable {
              productPrice = Double.parseDouble(txtPrice1.getText().trim());
 
              productSize = txtHeight1.getText().trim() + "x" + txtLength1.getText().trim() + "x" + txtWidth1.getText().trim();
+             if(type.getValue().equals("accessoire"))
+                 productSize = "n/a";
 
              productName = Name1.getText();
 

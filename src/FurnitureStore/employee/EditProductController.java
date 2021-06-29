@@ -17,11 +17,6 @@ import java.util.ResourceBundle;
 
 public class EditProductController implements Initializable {
 
-    @FXML
-    private RadioButton rbtnFurniture1;
-
-    @FXML
-    private RadioButton rbtnAccessoire2;
 
     @FXML
     private ChoiceBox<String> Type2;
@@ -73,6 +68,8 @@ public class EditProductController implements Initializable {
             productPrice = Double.parseDouble(txtPrice2.getText().trim());
 
             productSize = txtHeight2.getText().trim() + "x" + txtWidth2.getText().trim() + "x" + txtLength2.getText().trim();
+            if(Type2.getValue().equals("accessoire"))
+                productSize = "n/a";
 
             productName = Name2.getText();
 
@@ -134,12 +131,6 @@ public class EditProductController implements Initializable {
     }
 
     private void setTextFields() {
-        if (TempProduct.getProductCategory() == 1) {
-            rbtnFurniture1.setSelected(true);
-        }
-        else {
-            rbtnAccessoire2.setSelected(true);
-        }
 
         txtAmount2.setText(String.valueOf(TempProduct.getAvailableProductAmount()));
 
@@ -151,6 +142,9 @@ public class EditProductController implements Initializable {
     // Splitting the size string by using a regex
     private void setSizeFields() {
         String productSizeFull = TempProduct.getProductSize();
+        if(productSizeFull.equals("n/a"))
+            return;
+
         String[] productSizeSplit = productSizeFull.split("x", 3);
         String height = productSizeSplit[0];
         String  width= productSizeSplit[1];

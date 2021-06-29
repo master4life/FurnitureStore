@@ -126,9 +126,9 @@ public class SignupInfoController
         ps.setString(2, lname);
         ps.setString(3, place);
         ps.setInt(4, plz);
-        ps.setString(5, country);
-        ps.setString(6, state);
-        ps.setString(7, street);
+        ps.setString(5, street);
+        ps.setString(6, country);
+        ps.setString(7, state);
         ps.setInt(8, house);
         ps.execute();
 

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,16 +27,6 @@
                   <Font name="Avenir Book" size="14.0" />
                </font>
             </Button>
-            <RadioButton fx:id="rbtnAccessoire2" layoutX="238.0" layoutY="105.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="111.0" text="Accessoire">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="rbtnFurniture1" layoutX="95.0" layoutY="105.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="113.0" text="Furniture">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-            </RadioButton>
             <ChoiceBox fx:id="Type2" layoutX="95.0" layoutY="235.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;">
                <items>
                   <FXCollections fx:factory="observableArrayList">

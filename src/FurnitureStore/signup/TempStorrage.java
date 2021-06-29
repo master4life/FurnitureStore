@@ -19,7 +19,7 @@ public class TempStorrage {
         pass = _pass;
     }
     public static String getEmail(){
-        return pass;
+        return email;
     }
     public static void setEmail(String _email){ email = _email; }
 }
